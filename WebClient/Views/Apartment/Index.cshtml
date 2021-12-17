@@ -1,0 +1,63 @@
+﻿@using Business.Handlers.ViewModels
+@using Core.Utilities.Results
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IDataResult<IEnumerable<GetApartmentsVM>>
+
+@{
+    ViewData["Title"] = "Apartment Page";
+}
+
+<h3>Apartment List</h3>
+<div class="container">
+
+    <div class="row">
+        <div class="col-8">
+            @if (!Model.Success)
+            {
+                <h5>@Model.Message</h5>
+            }
+            else if (!Model.Data.Any())
+            {
+                <h5>Gösterilecek data bulunamadı!</h5>
+            }
+            else
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Total Floors</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Data)
+                        {
+                            <tr>
+                                <th scope="row">@Html.DisplayFor(model=> item.Id)</th>
+                                <td>@Html.DisplayFor(model=> item.Name)</td>
+                                <td>@Html.DisplayFor(model=> item.TotalFloors)</td>
+
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+
+            }
+        </div>
+        <div class="col">
+            <a class="btn btn-primary" href="@Url.Action("Create","Apartment")">Create</a>
+        </div>
+
+
+
+    </div>
+
+
+
+
+

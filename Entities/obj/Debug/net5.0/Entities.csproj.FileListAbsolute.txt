@@ -1,0 +1,15 @@
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\bin\Debug\net5.0\Entities.deps.json
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\bin\Debug\net5.0\Entities.dll
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\bin\Debug\net5.0\ref\Entities.dll
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\bin\Debug\net5.0\Entities.pdb
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\obj\Debug\net5.0\Entities.csproj.AssemblyReference.cache
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\obj\Debug\net5.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\obj\Debug\net5.0\Entities.AssemblyInfoInputs.cache
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\obj\Debug\net5.0\Entities.AssemblyInfo.cs
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\obj\Debug\net5.0\Entities.csproj.CoreCompileInputs.cache
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\obj\Debug\net5.0\Entities.dll
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\obj\Debug\net5.0\ref\Entities.dll
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\obj\Debug\net5.0\Entities.pdb
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\bin\Debug\net5.0\Core.dll
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\bin\Debug\net5.0\Core.pdb
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\obj\Debug\net5.0\Entities.csproj.CopyComplete
