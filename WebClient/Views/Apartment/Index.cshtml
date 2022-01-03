@@ -1,63 +1,63 @@
-﻿@using Business.Handlers.ViewModels
-@using Core.Utilities.Results
-@*
+﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@model IDataResult<IEnumerable<GetApartmentsVM>>
+@model IEnumerable<GetApartmentsViewModel>
 
 @{
     ViewData["Title"] = "Apartment Page";
 }
 
-<h3>Apartment List</h3>
-<div class="container">
-
-    <div class="row">
-        <div class="col-8">
-            @if (!Model.Success)
-            {
-                <h5>@Model.Message</h5>
-            }
-            else if (!Model.Data.Any())
-            {
-                <h5>Gösterilecek data bulunamadı!</h5>
-            }
-            else
-            {
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Total Floors</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.Data)
-                        {
-                            <tr>
-                                <th scope="row">@Html.DisplayFor(model=> item.Id)</th>
-                                <td>@Html.DisplayFor(model=> item.Name)</td>
-                                <td>@Html.DisplayFor(model=> item.TotalFloors)</td>
-
-                            </tr>
-
-                        }
-
-                    </tbody>
-                </table>
-
-            }
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Apartment List</h2>
         </div>
-        <div class="col">
-            <a class="btn btn-primary" href="@Url.Action("Create","Apartment")">Create</a>
+        <div class="col-6 text-right">
+            <a asp-controller="Apartment" asp-action="Create" class="btn btn-primary">
+                <i class="fas fa-plus"></i> &nbsp; Create New Apartment
+            </a>
         </div>
-
-
-
     </div>
 
+    <br /><br />
 
+    @if (Model.Any())
+    {
 
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Total Floors</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td width="50%">@item.Name</td>
+                        <td width="25%">@item.TotalFloors</td>
+                        <td class="text-center">
+                            <a asp-controller="Apartment" asp-action="Delete" asp-route-Id=@item.Id class="btn btn-danger">
+                                Del
+                            </a>
+                            <a asp-controller="Apartment" asp-action="Edit" asp-route-Id=@item.Id class="btn btn-primary">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
 
+                }
 
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h5 class="text-center">Gösterilecek data bulunamadı...</h5>
+    }
+
+</div>

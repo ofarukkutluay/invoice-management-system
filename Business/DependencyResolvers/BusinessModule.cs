@@ -31,7 +31,7 @@ namespace Business.DependencyResolvers
             serviceCollection.AddScoped<IAuthService,AuthManager>();
             serviceCollection.AddScoped<IApartmentService,ApartmentManager>();
 
-            serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());
+            
 
         }
     }

@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model GetApartmentViewModel
+@{
+    ViewData["Title"] = "Apartment Page - Edit";
+}
+
+<div class="container p-3">
+
+    <h2>Apartman Detayı</h2>
+    <form method="post" asp-action="Edit">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" type="text" class="form-control" id="name" value=@Model.Name >
+        </div>
+        <div class="mb-3">
+            <label asp-for="TotalFloors" class="form-label"></label>
+            <input asp-for="TotalFloors" class="form-control" id="totalFloors" value=@Model.TotalFloors>
+            
+        </div>
+        <input type="submit" value="Edit" class="btn btn-primary">
+    </form>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+
+</div>

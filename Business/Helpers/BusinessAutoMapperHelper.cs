@@ -10,15 +10,16 @@ using System.Threading.Tasks;
 
 namespace Business.Helpers
 {
-    public class AutoMapperHelper : Profile
+    public class BusinessAutoMapperHelper : Profile
     {
-        public AutoMapperHelper()
+        public BusinessAutoMapperHelper()
         {
             CreateMap<Person,GetPersonsVM>();
             CreateMap<RegisterPersonVM,Person>();
             CreateMap<CreateApartmentVM,Apartment>();
             CreateMap<Apartment,GetApartmentsVM>();
             CreateMap<Apartment, GetApartmentVM>();
+            
         }
     }
 }

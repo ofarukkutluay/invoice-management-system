@@ -41,7 +41,14 @@ namespace Business.Services.Concretes
 
         public IResult Delete(int id)
         {
-            throw new NotImplementedException();
+            var apartment = _apartmentRepository.Get(x=> x.Id==id);
+            if (apartment is null)
+                return new Result("Daire bulunamadı!",false);
+            _apartmentRepository.Delete(apartment);
+            int result = _apartmentRepository.SaveChanges();
+            if (result == 0)
+                return new Result("DB ye kaydederken bir hata oluştu!", false);
+            return new Result(true);
         }
 
         public IDataResult<IEnumerable<GetApartmentsVM>> GetAll()

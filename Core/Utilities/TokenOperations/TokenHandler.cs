@@ -53,7 +53,7 @@ namespace Core.Utilities.TokenOperations
         private IEnumerable<Claim> SetClaims(Person person)
         {
             var claims = new List<Claim>();
-            claims.Add( new Claim(ClaimTypes.NameIdentifier, person.Id.ToString()));
+            claims.Add(new Claim(ClaimTypes.NameIdentifier, person.Id.ToString()));
             claims.Add(new Claim(JwtRegisteredClaimNames.Email, person.Email));
             claims.Add(new Claim(ClaimTypes.Name, $"{person.FullName}"));
             claims.Add(new Claim(ClaimTypes.Role, person.OperationClaim.ToString()));
