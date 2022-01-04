@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Business.Handlers.ViewModels;
 using Business.Helpers;
-using WebClient.Models;
+using Entities.Concretes;
+using WebClient.Models.Apartment;
 
 namespace WebClient.Helpers.Mapper
 {
@@ -9,9 +9,11 @@ namespace WebClient.Helpers.Mapper
     {
         public ClientAutoMapperHelper()
         {   
-            CreateMap<GetApartmentsVM,GetApartmentsViewModel>();
-            CreateMap<GetApartmentVM, GetApartmentViewModel>();
-            CreateMap<CreateApartmentViewModel,CreateApartmentVM>();
+            CreateMap<Apartment,GetApartmentsViewModel>();
+            CreateMap<Apartment,GetApartmentViewModel>();
+            CreateMap<Apartment,UpdateApartmentViewModel>();
+            CreateMap<CreateApartmentViewModel,Apartment>();
+            CreateMap<UpdateApartmentViewModel,Apartment>();
         }
     }
 }

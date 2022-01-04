@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace WebClient.Models
+namespace WebClient.Models.Apartment
 {
     public class CreateApartmentViewModel
     {

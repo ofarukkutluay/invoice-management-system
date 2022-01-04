@@ -1,5 +1,4 @@
-﻿using Business.Handlers.Auth.Commands;
-using Business.Services.Abstracts;
+﻿using Business.Services.Abstracts;
 using Business.Services.Concretes;
 using Core.Utilities.IoC;
 using DataAccess.Abstracts;
@@ -20,7 +19,6 @@ namespace Business.DependencyResolvers
         {
             serviceCollection.AddScoped<IPersonRepository, EfPersonDal>();
             serviceCollection.AddScoped<IPersonService, PersonManager>();
-            serviceCollection.AddScoped<CreatePersonCommand>();
             serviceCollection.AddScoped<IApartmentRepository,EfApartmentDal>();
             serviceCollection.AddScoped<IFlatTypeRepository,EfFlatTypeDal>();
             serviceCollection.AddScoped<IHouseRepository,EfHouseDal>();

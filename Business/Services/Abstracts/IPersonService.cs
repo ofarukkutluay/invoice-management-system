@@ -1,5 +1,4 @@
-﻿using Business.Handlers.ViewModels;
-using Core.Entities.Concretes;
+﻿using Core.Entities.Concretes;
 using Core.Utilities.Results;
 using System;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ namespace Business.Services.Abstracts
 {
     public interface IPersonService
     {
-        IDataResult<List<GetPersonsVM>> GetAll();
+        IDataResult<List<Person>> GetAll();
         Person GetByEmail(string email);
         IResult Add(Person person);
 

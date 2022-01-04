@@ -1,15 +1,10 @@
 ﻿using AutoMapper;
-using Business.Handlers.ViewModels;
 using Business.Services.Abstracts;
 using Core.Utilities.Results;
 using DataAccess.Abstracts;
 using Entities.Concretes;
-using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Services.Concretes
 {
@@ -25,7 +20,7 @@ namespace Business.Services.Concretes
         }
 
         //[Authorize(Roles = "Admin")]
-        public IResult Create(CreateApartmentVM createApartment)
+        public IResult Create(Apartment createApartment)
         {
             var apartment = _apartmentRepository.Get(x=> x.Name== createApartment.Name);
             if (apartment is not null)
@@ -51,25 +46,30 @@ namespace Business.Services.Concretes
             return new Result(true);
         }
 
-        public IDataResult<IEnumerable<GetApartmentsVM>> GetAll()
+        public IDataResult<IEnumerable<Apartment>> GetAll()
         {
             var apartments = _apartmentRepository.GetList();
-            IEnumerable<GetApartmentsVM> vmList = _mapper.Map<IEnumerable<GetApartmentsVM>>(apartments);
-            return new DataResult<IEnumerable<GetApartmentsVM>>(vmList,true);
+            return new DataResult<IEnumerable<Apartment>>(apartments,true);
         }
 
-        public IDataResult<GetApartmentVM> GetById(int id)
+        public IDataResult<Apartment> GetById(int id)
         {
             var apartment = _apartmentRepository.Get(x=>x.Id == id);
             if (apartment is null)
-                return new DataResult<GetApartmentVM>(null,"Bu isimde daire bulunamadı!", false);
-            GetApartmentVM vm = _mapper.Map<GetApartmentVM>(apartment);
-            return new DataResult<GetApartmentVM>(vm,true);
+                return new DataResult<Apartment>(null,"Bu isimde daire bulunamadı!", false);
+            return new DataResult<Apartment>(apartment,true);
         }
 
-        public IResult Update(int id, UpdateApartmentVM updateApartment)
+        public IResult Update(int id, Apartment updateApartment)
         {
-            throw new NotImplementedException();
+            var apartment = _apartmentRepository.Get(x=> x.Id==id);
+            apartment.Name = updateApartment.Name == default ? apartment.Name : updateApartment.Name;
+            apartment.TotalFloors = updateApartment.TotalFloors == default ? apartment.TotalFloors : updateApartment.TotalFloors;
+            
+            int result = _apartmentRepository.SaveChanges();
+            if (result == 0)
+                return new Result("DB ye kaydederken bir hata oluştu!", false);
+            return new Result(true);
         }
     }
 }

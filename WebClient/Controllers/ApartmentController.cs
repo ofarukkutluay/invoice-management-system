@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using Business.Handlers.ViewModels;
 using Business.Services.Abstracts;
 using Core.Utilities.Results;
+using Entities.Concretes;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using WebClient.Models;
+using WebClient.Models.Apartment;
 
 namespace WebClient.Controllers
 {
@@ -41,7 +41,7 @@ namespace WebClient.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(CreateApartmentViewModel createApartmentVM)
         {
-            CreateApartmentVM model = _mapper.Map<CreateApartmentVM>(createApartmentVM);
+            Apartment model = _mapper.Map<Apartment>(createApartmentVM);
             var result = _apartmentService.Create(model);
             Console.WriteLine(result.Message);
             return RedirectToAction("Index");
@@ -60,10 +60,21 @@ namespace WebClient.Controllers
             var result = _apartmentService.GetById(id);
             if (result.Success)
             {
-                GetApartmentViewModel model = _mapper.Map<GetApartmentViewModel>(result.Data);
+                UpdateApartmentViewModel model = _mapper.Map<UpdateApartmentViewModel>(result.Data);
                 return View(model);
             }
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id,UpdateApartmentViewModel model)
+        {
+            Apartment mapObj = _mapper.Map<Apartment>(model);
+            var result = _apartmentService.Update(id,mapObj);
+            if (result.Success)
+                return RedirectToAction("Index");
+            return RedirectToAction("Index");
         }
     }
 }

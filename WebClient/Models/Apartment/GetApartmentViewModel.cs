@@ -1,4 +1,4 @@
-﻿namespace WebClient.Models
+﻿namespace WebClient.Models.Apartment
 {
     public class GetApartmentViewModel
     {

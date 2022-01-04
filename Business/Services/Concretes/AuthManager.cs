@@ -1,10 +1,10 @@
-﻿using Business.Handlers.ViewModels;
-using Business.Services.Abstracts;
+﻿using Business.Services.Abstracts;
 using Core.Entities.Concretes;
 using Core.Utilities.Hashing;
 using Core.Utilities.Results;
 using Core.Utilities.TokenOperations;
 using Core.Utilities.TokenOperations.Models;
+using Entities.Dtos;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -24,7 +24,7 @@ namespace Business.Services.Concretes
             _configuration = configuration;
         }
 
-        public IResult RegisterPerson(RegisterPersonVM registerPerson)
+        public IResult RegisterPerson(RegisterPersonDto registerPerson)
         {
             byte[] passwordHash;
             var person = _personService.GetByEmail(registerPerson.Email);
@@ -44,7 +44,7 @@ namespace Business.Services.Concretes
 
         }
 
-        public IDataResult<Token> LoginPerson(LoginPersonVM loginPerson)
+        public IDataResult<Token> LoginPerson(LoginPersonDto loginPerson)
         {
             var person = _personService.GetByEmail(loginPerson.Email);
             if (person is null)

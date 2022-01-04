@@ -1,6 +1,6 @@
-﻿namespace WebClient.Models
+﻿namespace WebClient.Models.Apartment
 {
-    public class GetApartmentsViewModel
+    public class UpdateApartmentViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Business.Handlers.ViewModels;
 using Business.Services.Abstracts;
 using Core.Entities.Concretes;
 using Core.Utilities.Hashing;
@@ -34,11 +33,10 @@ namespace Business.Services.Concretes
             return new Result("Kayıt Yapıldı!", true);
         }
 
-        public IDataResult<List<GetPersonsVM>> GetAll()
+        public IDataResult<List<Person>> GetAll()
         {
             var data = _personRepository.GetList().ToList();
-            var returnObj = _mapper.Map<List<GetPersonsVM>>(data);
-            return new DataResult<List<GetPersonsVM>>(returnObj, true);
+            return new DataResult<List<Person>>(data, true);
         }
 
         

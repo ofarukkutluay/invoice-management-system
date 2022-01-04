@@ -26,8 +26,15 @@ using WebClient.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\Views\_ViewImports.cshtml"
+using WebClient.Models.Apartment;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f0c0411a05e65a53823b131f11e60f03b2700b00", @"/Views/Apartment/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"74eabcf7e030352eff2473b217adffa5ad5752fa", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"baab6bb72e701b4f953f4503cabca25c0b834d4a", @"/Views/_ViewImports.cshtml")]
     public class Views_Apartment_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<GetApartmentsViewModel>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Apartment", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -70,7 +77,7 @@ using WebClient.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<div class=\"container p-3\">\r\n    <div class=\"row pt-4\">\r\n        <div class=\"col-6\">\r\n            <h2 class=\"text-primary\">Apartment List</h2>\r\n        </div>\r\n        <div class=\"col-6 text-right\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0c0411a05e65a53823b131f11e60f03b2700b005565", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0c0411a05e65a53823b131f11e60f03b2700b005774", async() => {
                 WriteLiteral("\r\n                <i class=\"fas fa-plus\"></i> &nbsp; Create New Apartment\r\n            ");
             }
             );
@@ -142,7 +149,7 @@ using WebClient.Models;
 #line hidden
 #nullable disable
             WriteLiteral("</td>\r\n                        <td class=\"text-center\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0c0411a05e65a53823b131f11e60f03b2700b009104", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0c0411a05e65a53823b131f11e60f03b2700b009313", async() => {
                 WriteLiteral("\r\n                                Del\r\n                            ");
             }
             );
@@ -176,7 +183,7 @@ using WebClient.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0c0411a05e65a53823b131f11e60f03b2700b0011692", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0c0411a05e65a53823b131f11e60f03b2700b0011901", async() => {
                 WriteLiteral("\r\n                                Edit\r\n                            ");
             }
             );
