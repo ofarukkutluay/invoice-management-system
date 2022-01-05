@@ -18,7 +18,6 @@ namespace Business.DependencyResolvers
         public void Load(IServiceCollection serviceCollection)
         {
             serviceCollection.AddScoped<IPersonRepository, EfPersonDal>();
-            serviceCollection.AddScoped<IPersonService, PersonManager>();
             serviceCollection.AddScoped<IApartmentRepository,EfApartmentDal>();
             serviceCollection.AddScoped<IFlatTypeRepository,EfFlatTypeDal>();
             serviceCollection.AddScoped<IHouseRepository,EfHouseDal>();
@@ -26,8 +25,11 @@ namespace Business.DependencyResolvers
             serviceCollection.AddScoped<IInvoiceTypeRespository,EfInvoiceTypeDal>();
             serviceCollection.AddScoped<IOwnerRepository,EfOwnerDal>();
             serviceCollection.AddScoped<IResidentRepository,EfResidentDal>();
+            
+            serviceCollection.AddScoped<IPersonService, PersonManager>();
             serviceCollection.AddScoped<IAuthService,AuthManager>();
             serviceCollection.AddScoped<IApartmentService,ApartmentManager>();
+            serviceCollection.AddScoped<IFlatTypeService,FlatTypeManager>();
 
             
 

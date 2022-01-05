@@ -1,0 +1,32 @@
+﻿@using WebClient.Models.FlatType
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model CreateFlatTypeViewModel
+@{
+    ViewData["Title"] = "Apartment Page - Create";
+}
+
+<div class="container">
+<h3>Flat Type Ekle</h3>
+<form method="post" asp-action="Create">
+    <div class="mb-3">
+        <label asp-for="RoomCount" class="form-label"></label>
+        <input asp-for="RoomCount" type="text" class="form-control" id="roomCount" aria-describedby="roomCountHelp">
+        <div id="roomCountHelp" class="form-text">Oda sayısını giriniz.</div>
+    </div>
+    <div class="mb-3">
+        <label asp-for="LivingRoomCount" class="form-label"></label>
+        <input asp-for="LivingRoomCount" class="form-control" id="livingRoomCount" aria-describedby="livingRoomCountHelp">
+        <div id="livingRoomCountHelp" class="form-text">Salon sayısını giriniz.</div>
+    </div>
+    <input type="submit" value="Create" class="btn btn-primary">
+</form>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+</div>
+
+

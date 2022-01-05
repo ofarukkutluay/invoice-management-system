@@ -1,21 +1,21 @@
-﻿@using WebClient.Models.Apartment
+﻿@using WebClient.Models.FlatType
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@model IEnumerable<GetApartmentsViewModel>
+@model IEnumerable<GetFlatTypesViewModel>
 
 @{
-    ViewData["Title"] = "Apartment Page";
+    ViewData["Title"] = "Flat Type Page";
 }
 
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary">Apartment List</h2>
+            <h2 class="text-primary">Flat Type List</h2>
         </div>
         <div class="col-6 text-right">
-            <a asp-controller="Apartment" asp-action="Create" class="btn btn-primary">
-                <i class="fas fa-plus"></i> &nbsp; Create New Apartment
+            <a asp-controller="FlatType" asp-action="Create" class="btn btn-primary">
+                <i class="fas fa-plus"></i> &nbsp; Create New FlatType
             </a>
         </div>
     </div>
@@ -29,8 +29,8 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Total Floors</th>
+                    <th scope="col">Room Count</th>
+                    <th scope="col">living Room Count</th>
                     <th></th>
                 </tr>
             </thead>
@@ -39,13 +39,13 @@
                 {
                     <tr>
                         <th scope="row">@item.Id</th>
-                        <td width="50%">@item.Name</td>
-                        <td width="25%">@item.TotalFloors</td>
+                        <td width="50%">@item.RoomCount</td>
+                        <td width="25%">@item.LivingRoomCount</td>
                         <td class="text-center">
-                            <a asp-controller="Apartment" asp-action="Delete" asp-route-Id=@item.Id class="btn btn-danger">
+                            <a asp-controller="FlatType" asp-action="Delete" asp-route-Id=@item.Id class="btn btn-danger">
                                 Del
                             </a>
-                            <a asp-controller="Apartment" asp-action="Edit" asp-route-Id=@item.Id class="btn btn-primary">
+                            <a asp-controller="FlatType" asp-action="Edit" asp-route-Id=@item.Id class="btn btn-primary">
                                 Edit
                             </a>
                         </td>

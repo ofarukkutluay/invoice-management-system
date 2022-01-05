@@ -2,6 +2,7 @@
 using Business.Helpers;
 using Entities.Concretes;
 using WebClient.Models.Apartment;
+using WebClient.Models.FlatType;
 
 namespace WebClient.Helpers.Mapper
 {
@@ -14,6 +15,11 @@ namespace WebClient.Helpers.Mapper
             CreateMap<Apartment,UpdateApartmentViewModel>();
             CreateMap<CreateApartmentViewModel,Apartment>();
             CreateMap<UpdateApartmentViewModel,Apartment>();
+
+            CreateMap<FlatType,GetFlatTypesViewModel>();
+            CreateMap<FlatType,UpdateFlatTypeViewModel>();
+            CreateMap<CreateFlatTypeViewModel,FlatType>();
+            CreateMap<UpdateFlatTypeViewModel,FlatType>();
         }
     }
 }

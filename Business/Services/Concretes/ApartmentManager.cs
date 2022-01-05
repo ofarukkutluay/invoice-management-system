@@ -63,6 +63,8 @@ namespace Business.Services.Concretes
         public IResult Update(int id, Apartment updateApartment)
         {
             var apartment = _apartmentRepository.Get(x=> x.Id==id);
+            if (apartment is null)
+                return new Result("Bu isimde daire bulunamadı!", false);
             apartment.Name = updateApartment.Name == default ? apartment.Name : updateApartment.Name;
             apartment.TotalFloors = updateApartment.TotalFloors == default ? apartment.TotalFloors : updateApartment.TotalFloors;
             
