@@ -71,7 +71,7 @@ namespace Business.Services.Concretes
             int result = _apartmentRepository.SaveChanges();
             if (result == 0)
                 return new Result("DB ye kaydederken bir hata oluştu!", false);
-            return new Result(true);
+            return new Result("Kayıt edildi!",true);
         }
     }
 }

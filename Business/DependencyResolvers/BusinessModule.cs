@@ -30,8 +30,9 @@ namespace Business.DependencyResolvers
             serviceCollection.AddScoped<IAuthService,AuthManager>();
             serviceCollection.AddScoped<IApartmentService,ApartmentManager>();
             serviceCollection.AddScoped<IFlatTypeService,FlatTypeManager>();
+            serviceCollection.AddScoped<IHouseService, HouseManager>();
+            serviceCollection.AddScoped<IInvoiceTypeService, InvoiceTypeManager>();
 
-            
 
         }
     }

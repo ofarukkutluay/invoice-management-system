@@ -5,6 +5,7 @@ using Entities.Concretes;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Security.Policy;
 using WebClient.Models.Apartment;
 
 namespace WebClient.Controllers
@@ -43,7 +44,8 @@ namespace WebClient.Controllers
         {
             Apartment model = _mapper.Map<Apartment>(createApartmentVM);
             var result = _apartmentService.Create(model);
-            Console.WriteLine(result.Message);
+            TempData["alertType"] = "success";
+            TempData["alertMessage"] = result.Message;
             return RedirectToAction("Index");
         }
 
@@ -51,7 +53,13 @@ namespace WebClient.Controllers
         {
             var result = _apartmentService.Delete(id);
             if (result.Success)
+            {
+                TempData["alertType"] = "success";
+                TempData["alertMessage"] = result.Message;
                 return RedirectToAction("Index");
+            }
+            TempData["alertType"] = "danger";
+            TempData["alertMessage"] = result.Message;
             return RedirectToAction("Index");
         }
 
@@ -68,13 +76,19 @@ namespace WebClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id,UpdateApartmentViewModel model)
+        public IActionResult Edit(int id, UpdateApartmentViewModel model)
         {
             Apartment mapObj = _mapper.Map<Apartment>(model);
-            var result = _apartmentService.Update(id,mapObj);
+            var result = _apartmentService.Update(id, mapObj);
             if (result.Success)
+            {
+                TempData["alertType"] = "success";
+                TempData["alertMessage"] = result.Message;
                 return RedirectToAction("Index");
-            return RedirectToAction("Index");
+            }
+            TempData["alertType"] = "danger";
+            TempData["alertMessage"] = result.Message;
+            return View();
         }
     }
 }

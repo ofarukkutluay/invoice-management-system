@@ -42,7 +42,8 @@ namespace WebClient.Controllers
         {
             FlatType model = _mapper.Map<FlatType>(createFlatType);
             var result = _flatTypeService.Create(model);
-            Console.WriteLine(result.Message);
+            TempData["alertType"] = "success";
+            TempData["alertMessage"] = result.Message;
             return RedirectToAction("Index");
         }
 
@@ -50,7 +51,14 @@ namespace WebClient.Controllers
         {
             var result = _flatTypeService.Delete(id);
             if (result.Success)
+            {
+                TempData["alertType"] = "success";
+                TempData["alertMessage"] = result.Message; 
                 return RedirectToAction("Index");
+            }
+            TempData["alertType"] = "danger";
+            TempData["alertMessage"] = result.Message;
+
             return RedirectToAction("Index");
         }
 
@@ -72,7 +80,13 @@ namespace WebClient.Controllers
             FlatType mapObj = _mapper.Map<FlatType>(model);
             var result = _flatTypeService.Update(id, mapObj);
             if (result.Success)
+            {
+                TempData["alertType"] = "success";
+                TempData["alertMessage"] = result.Message;
                 return RedirectToAction("Index");
+            }
+            TempData["alertType"] = "danger";
+            TempData["alertMessage"] = result.Message;
             return RedirectToAction("Index");
         }
     }

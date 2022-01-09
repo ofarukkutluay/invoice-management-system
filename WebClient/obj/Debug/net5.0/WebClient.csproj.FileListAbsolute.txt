@@ -164,3 +164,9 @@ E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\ne
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\FlatType\Create.cshtml.g.cs
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\FlatType\Edit.cshtml.g.cs
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\FlatType\Index.cshtml.g.cs
+E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\House\Create.cshtml.g.cs
+E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\House\Edit.cshtml.g.cs
+E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\House\Index.cshtml.g.cs
+E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\InvoiceType\Create.cshtml.g.cs
+E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\InvoiceType\Edit.cshtml.g.cs
+E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\InvoiceType\Index.cshtml.g.cs

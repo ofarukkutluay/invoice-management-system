@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model WebClient.Models.House.UpdateHouseViewModel
+@{
+    ViewData["Title"] = "House Page - Update";
+}
+
+<div class="container">
+    <h3>Ev Güncelle</h3>
+    <form method="post" asp-action="Edit">
+        <input asp-for="Id" hidden />
+
+        <div class="mb-3">
+
+            <label class="form-label">Apartment</label>
+            <div class="input-group mb-3">
+                <select asp-for="ApartmentId" asp-items="@ViewData["Apartments"] as IEnumerable<SelectListItem>" class="form-control" aria-describedby="apartmentHelp">
+                    <option disabled selected>--Select Apartment--</option>
+                </select>
+                <a asp-controller="Apartment" asp-action="Create" class="btn btn-primary">+</a>
+            </div>
+            <div id="apartmentHelp" class="form-text">Apartmanı seçiniz.</div>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="FloorLocation" class="form-label"></label>
+            <input asp-for="FloorLocation" class="form-control" id="floorLocation" aria-describedby="floorLocationHelp">
+            <div id="floorLocationHelp" class="form-text">Bulunduğu katı giriniz.</div>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DoorNumber" class="form-label"></label>
+            <input asp-for="DoorNumber" class="form-control" id="doorNumber" aria-describedby="doorNumberHelp">
+            <div id="doorNumberHelp" class="form-text">Daire numarasını giriniz.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Flat Type</label>
+            <div class="input-group mb-3">
+                <select asp-for="FlatTypeId" asp-items="@ViewData["FlatTypes"] as IEnumerable<SelectListItem>" class="form-control" aria-describedby="flatTypeHelp">
+                    <option disabled selected>--Select FlatType--</option>
+                </select>
+                <a asp-controller="FlatType" asp-action="Create" class="btn btn-primary">+</a>
+
+            </div>
+            <div id="flatTypeHelp" class="form-text">Daire tipini seçiniz.</div>
+        </div>
+        <input type="submit" value="Edit" class="btn btn-primary">
+    </form>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+
+</div>
