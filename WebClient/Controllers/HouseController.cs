@@ -9,7 +9,7 @@ using WebClient.Models.House;
 
 namespace WebClient.Controllers
 {
-    public class HouseController : Controller
+    public class HouseController : BaseController
     {
         private readonly IHouseService _houseService;
         private readonly IMapper _mapper;
@@ -46,12 +46,10 @@ namespace WebClient.Controllers
             var result = _houseService.Create(house);
             if (result.Success)
             {
-                TempData["alertType"] = "success";
-                TempData["alertMessage"] = result.Message;
+                SuccessAlert(result.Message);
                 return RedirectToAction("Index");
             }
-            TempData["alertType"] = "danger";
-            TempData["alertMessage"] = result.Message;
+            DangerAlert(result.Message);
             return View();
         }
         public IActionResult Edit(int id)
@@ -70,13 +68,10 @@ namespace WebClient.Controllers
             var result = _houseService.Update(id, house);
             if (result.Success)
             {
-                TempData["alertType"] = "success";
-                TempData["alertMessage"] = result.Message;
+                SuccessAlert(result.Message);
                 return RedirectToAction("Index");
             }
-
-            TempData["alertType"] = "danger";
-            TempData["alertMessage"] = result.Message;
+            DangerAlert(result.Message);
             return View();
         }
 
@@ -84,8 +79,7 @@ namespace WebClient.Controllers
         public IActionResult Delete(int id)
         {
             var result = _houseService.Delete(id);
-            TempData["alertType"] = "success";
-            TempData["alertMessage"] = result.Message;
+            SuccessAlert(result.Message);
             return RedirectToAction("Index");
         }
 

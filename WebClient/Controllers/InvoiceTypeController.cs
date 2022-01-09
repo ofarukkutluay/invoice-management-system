@@ -7,7 +7,7 @@ using WebClient.Models.InvoiceType;
 
 namespace WebClient.Controllers
 {
-    public class InvoiceTypeController : Controller
+    public class InvoiceTypeController : BaseController
     {
         private readonly IInvoiceTypeService _invoiceTypeService;
         private readonly IMapper _mapper;
@@ -41,8 +41,7 @@ namespace WebClient.Controllers
         {
             InvoiceType model = _mapper.Map<InvoiceType>(createFlatType);
             var result = _invoiceTypeService.Create(model);
-            TempData["alertType"] = "success";
-            TempData["alertMessage"] = result.Message;
+            SuccessAlert(result.Message);
             return RedirectToAction("Index");
         }
 
@@ -51,13 +50,10 @@ namespace WebClient.Controllers
             var result = _invoiceTypeService.Delete(id);
             if (result.Success)
             {
-                TempData["alertType"] = "success";
-                TempData["alertMessage"] = result.Message;
+                SuccessAlert(result.Message);
                 return RedirectToAction("Index");
             }
-            TempData["alertType"] = "danger";
-            TempData["alertMessage"] = result.Message;
-
+            DangerAlert(result.Message);
             return RedirectToAction("Index");
         }
 
@@ -80,12 +76,10 @@ namespace WebClient.Controllers
             var result = _invoiceTypeService.Update(id, mapObj);
             if (result.Success)
             {
-                TempData["alertType"] = "success";
-                TempData["alertMessage"] = result.Message;
+                SuccessAlert(result.Message);
                 return RedirectToAction("Index");
             }
-            TempData["alertType"] = "danger";
-            TempData["alertMessage"] = result.Message;
+            DangerAlert(result.Message);
             return RedirectToAction("Index");
         }
     }

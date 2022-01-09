@@ -10,7 +10,7 @@ using WebClient.Models.Apartment;
 
 namespace WebClient.Controllers
 {
-    public class ApartmentController : Controller
+    public class ApartmentController : BaseController
     {
         private readonly IApartmentService _apartmentService;
         private readonly IMapper _mapper;
@@ -44,8 +44,7 @@ namespace WebClient.Controllers
         {
             Apartment model = _mapper.Map<Apartment>(createApartmentVM);
             var result = _apartmentService.Create(model);
-            TempData["alertType"] = "success";
-            TempData["alertMessage"] = result.Message;
+            SuccessAlert(result.Message);
             return RedirectToAction("Index");
         }
 
@@ -54,12 +53,10 @@ namespace WebClient.Controllers
             var result = _apartmentService.Delete(id);
             if (result.Success)
             {
-                TempData["alertType"] = "success";
-                TempData["alertMessage"] = result.Message;
+                SuccessAlert(result.Message);
                 return RedirectToAction("Index");
             }
-            TempData["alertType"] = "danger";
-            TempData["alertMessage"] = result.Message;
+            DangerAlert(result.Message);
             return RedirectToAction("Index");
         }
 
@@ -82,12 +79,10 @@ namespace WebClient.Controllers
             var result = _apartmentService.Update(id, mapObj);
             if (result.Success)
             {
-                TempData["alertType"] = "success";
-                TempData["alertMessage"] = result.Message;
+                SuccessAlert(result.Message);
                 return RedirectToAction("Index");
             }
-            TempData["alertType"] = "danger";
-            TempData["alertMessage"] = result.Message;
+            DangerAlert(result.Message);
             return View();
         }
     }
