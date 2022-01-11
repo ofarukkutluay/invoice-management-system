@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2AuM8UYFAEII5VoSuxbPbYBwpaxx3zKp3L82ahMQSBlEPUU5J6USF/Eq3zx6DXfc64DRD9ZEWZ8+8+4sbQSDqA==",
+  "dgSpecHash": "P9FS1J0CTl39h5zWSmZh0TEhajc4YH7XOYddqcyMJWUNJCFdDa0AzqmExBWNIsfvhgcfdS1T7IwajdRsznxu1A==",
   "success": true,
   "projectFilePath": "E:\\Projects\\CSharp\\source\\repos\\invoice-management-system\\Business\\Business.csproj",
   "expectedPackageFiles": [
@@ -35,6 +35,7 @@
     "C:\\Users\\ofaru\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\ofaru\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",

@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Middlewares.ExceptionHandler;
 using WebClient.Helpers.Mapper;
 
 namespace WebClient
@@ -52,6 +53,8 @@ namespace WebClient
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCustomExceptionMiddleware();
 
             app.UseEndpoints(endpoints =>
             {

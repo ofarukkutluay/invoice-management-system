@@ -32,6 +32,7 @@ namespace Business.DependencyResolvers
             serviceCollection.AddScoped<IFlatTypeService,FlatTypeManager>();
             serviceCollection.AddScoped<IHouseService, HouseManager>();
             serviceCollection.AddScoped<IInvoiceTypeService, InvoiceTypeManager>();
+            serviceCollection.AddScoped<IOwnerService, OwnerManager>();
 
 
         }

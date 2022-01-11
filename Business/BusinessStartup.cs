@@ -13,6 +13,7 @@ using Core.Utilities.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Core.DependencyResolvers;
 
 namespace Business
 {
@@ -29,7 +30,8 @@ namespace Business
             services.AddDbContext<InvoiceManagementDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("localServer")));
             services.AddDependencyResolvers(new ICoreModule[]
             {
-                new BusinessModule()
+                new BusinessModule(),
+                new CoreModule()
             });
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
             {

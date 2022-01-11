@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hRvC08Pj3Mj+2gGfik84aX9ADTvKOUDLnVXYtjHTfY9w4XGpBMbeYW7pRBbQBbBm8tiKQdO+PG0WAjV6eLxAiA==",
+  "dgSpecHash": "3eehKtl87sOcZAYIdRqqWNKR3ydVHY7vNkGZHm/x8JxEzV2rjiMPqWF62WCeDyLvG3ZnVDkpqNR7llgvgqRS8g==",
   "success": true,
   "projectFilePath": "E:\\Projects\\CSharp\\source\\repos\\invoice-management-system\\Entities\\Entities.csproj",
   "expectedPackageFiles": [
@@ -26,6 +26,7 @@
     "C:\\Users\\ofaru\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.7.1\\microsoft.identitymodel.protocols.6.7.1.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.7.1\\microsoft.identitymodel.protocols.openidconnect.6.7.1.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.7.1\\microsoft.identitymodel.tokens.6.7.1.nupkg.sha512",
+    "C:\\Users\\ofaru\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",

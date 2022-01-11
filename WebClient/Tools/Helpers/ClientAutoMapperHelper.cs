@@ -6,6 +6,7 @@ using WebClient.Models.Apartment;
 using WebClient.Models.FlatType;
 using WebClient.Models.House;
 using WebClient.Models.InvoiceType;
+using WebClient.Models.Owner;
 
 namespace WebClient.Helpers.Mapper
 {
@@ -33,6 +34,11 @@ namespace WebClient.Helpers.Mapper
             CreateMap<InvoiceType, UpdateInvoiceTypeViewModel>();
             CreateMap<CreateInvoiceTypeViewModel, InvoiceType>();
             CreateMap<UpdateInvoiceTypeViewModel, InvoiceType>();
+
+            CreateMap<Owner, GetOwnersViewModel>();
+            CreateMap<Owner, UpdateOwnerViewModel>();
+            CreateMap<CreateOwnerViewModel, Owner>();
+            CreateMap<UpdateOwnerViewModel, Owner>();
         }
     }
 }
