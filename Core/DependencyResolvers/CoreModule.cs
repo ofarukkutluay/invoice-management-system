@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.CrossCuttingConcerns.Logging;
-using Core.CrossCuttingConcerns.Logging.ConsoleLogger;
 using Core.Utilities.IoC;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,7 +13,8 @@ namespace Core.DependencyResolvers
     {
         public void Load(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddSingleton<ILoggerService, ConsoleLogger>();
+            serviceCollection.AddSingleton<ILoggerService, DBLogger>();
+
         }
     }
 }

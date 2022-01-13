@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AU4ZHEBaCFt77ogKrQHNbTdN0UzcM0adlHS9ggQmxB15UXoKkKbMreHfkaAcwzeGkIGn+TnUbfCr+v95WjbnoQ==",
+  "dgSpecHash": "OwmHJuFFZL88+7Ptr7UXxN1/gZNYrBxEjNUjYK13dpX8REoKLRtJRlAWbk8Cgb4AufhSgqELxn9po7IMRlAz3w==",
   "success": true,
   "projectFilePath": "E:\\Projects\\CSharp\\source\\repos\\invoice-management-system\\WebClient\\WebClient.csproj",
   "expectedPackageFiles": [
@@ -29,6 +29,7 @@
     "C:\\Users\\ofaru\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.12\\microsoft.entityframeworkcore.design.5.0.12.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.12\\microsoft.entityframeworkcore.relational.5.0.12.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.12\\microsoft.entityframeworkcore.sqlserver.5.0.12.nupkg.sha512",
+    "C:\\Users\\ofaru\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.12\\microsoft.entityframeworkcore.tools.5.0.12.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",

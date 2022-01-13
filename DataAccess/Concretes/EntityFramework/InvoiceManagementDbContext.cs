@@ -1,4 +1,5 @@
 ﻿
+using Core.CrossCuttingConcerns.Logging;
 using Core.Entities.Concretes;
 using Entities.Concretes;
 
@@ -21,6 +22,7 @@ namespace DataAccess.Concretes.EntityFramework
         public DbSet<Resident> Residents { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<InvoiceType> InvoiceTypes { get; set; }
+        public DbSet<Log> Logs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,6 +36,7 @@ namespace DataAccess.Concretes.EntityFramework
             modelBuilder.Entity<FlatType>(ConfigureFlatType);
             modelBuilder.Entity<InvoiceType>(ConfigureInvoiceType);
             modelBuilder.Entity<Invoice>(ConfigureInvoice);
+            modelBuilder.Entity<Log>(ConfigureLog);
 
 
             base.OnModelCreating(modelBuilder);
@@ -89,6 +92,10 @@ namespace DataAccess.Concretes.EntityFramework
             builder.HasOne<Person>().WithMany().HasForeignKey(x=>x.PayingPersonId);
         }
 
+        private void ConfigureLog(EntityTypeBuilder<Log> builder)
+        {
+            builder.HasKey(x => x.Id);
+        }
 
 
 

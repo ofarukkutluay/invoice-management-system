@@ -10,6 +10,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Business.Helpers.DbLoging;
+using Core.CrossCuttingConcerns.Logging;
 
 namespace Business.DependencyResolvers
 {
@@ -25,6 +27,7 @@ namespace Business.DependencyResolvers
             serviceCollection.AddScoped<IInvoiceTypeRespository,EfInvoiceTypeDal>();
             serviceCollection.AddScoped<IOwnerRepository,EfOwnerDal>();
             serviceCollection.AddScoped<IResidentRepository,EfResidentDal>();
+            serviceCollection.AddScoped<ILogRepository, EfLogDal>();
             
             serviceCollection.AddScoped<IPersonService, PersonManager>();
             serviceCollection.AddScoped<IAuthService,AuthManager>();
@@ -33,6 +36,7 @@ namespace Business.DependencyResolvers
             serviceCollection.AddScoped<IHouseService, HouseManager>();
             serviceCollection.AddScoped<IInvoiceTypeService, InvoiceTypeManager>();
             serviceCollection.AddScoped<IOwnerService, OwnerManager>();
+            serviceCollection.AddScoped<IResidentService, ResidentManager>();
 
 
         }
