@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.Entities.Concretes
 {
-    public enum OperationClaims
+    public static class OperationClaims
     {
-        Admin,
-        User
+        public const string Admin = "Admin";
+        public const string User = "User";
     }
 }

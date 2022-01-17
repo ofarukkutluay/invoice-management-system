@@ -15,8 +15,11 @@ namespace Core.Entities.Concretes
         public string FullName { get; set; }
         public string Email { get; set; }
         public long MobileNumber { get; set; }
+        public byte[] PasswordSalt { get; set; }
         public byte[] PasswordHash { get; set; }
-        public OperationClaims OperationClaim { get; set; } = OperationClaims.User;
+        public string OperationClaim { get; set; } = OperationClaims.User;
+        public string RefreshToken { get; set; }
+        public DateTime? RefresTokenExpireDate { get; set; }
         public bool IsActive { get; set; } = true;
        
     }

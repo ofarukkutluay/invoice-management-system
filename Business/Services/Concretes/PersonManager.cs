@@ -24,7 +24,7 @@ namespace Business.Services.Concretes
             _mapper = mapper;
         }
 
-        public IResult Add(Person person)
+        public IResult Create(Person person)
         {
             _personRepository.Add(person);
             int result = _personRepository.SaveChanges();
@@ -33,13 +33,37 @@ namespace Business.Services.Concretes
             return new Result("Kayıt Yapıldı!", true);
         }
 
-        public IDataResult<List<Person>> GetAll()
+        public IResult Delete(int id)
         {
-            var data = _personRepository.GetList().ToList();
-            return new DataResult<List<Person>>(data, true);
+            throw new NotImplementedException();
         }
 
-        
+        public IResult Update(int id, Person entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<Person> GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult AddRefreshToken(int id,string refreshToken, DateTime expirationTime)
+        {
+            var person = _personRepository.Get(x => x.Id == id);
+            person.RefreshToken = refreshToken;
+            person.RefresTokenExpireDate = expirationTime;
+            int result = _personRepository.SaveChanges();
+            if (result == 0)
+                return new Result("Kayıt Yapılamadı!", false);
+            return new Result("Kayıt Yapıldı!", true);
+        }
+
+        public IDataResult<IEnumerable<Person>> GetAll()
+        {
+            var data = _personRepository.GetList();
+            return new DataResult<IEnumerable<Person>>(data, true);
+        }
 
         public Person GetByEmail(string email)
         {

@@ -5,7 +5,10 @@ using Entities.Concretes;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Security.Policy;
+using Core.Entities.Concretes;
+using Microsoft.AspNetCore.Authorization;
 using WebClient.Models.Apartment;
 
 namespace WebClient.Controllers
@@ -20,7 +23,7 @@ namespace WebClient.Controllers
             _mapper = mapper;
         }
 
-
+        
         public IActionResult Index()
         {
             var result = _apartmentService.GetAll();
@@ -33,6 +36,7 @@ namespace WebClient.Controllers
 
         }
 
+        [Authorize(Roles = "Admin,User")]
         public IActionResult Create()
         {
             return View();

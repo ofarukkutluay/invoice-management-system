@@ -27,17 +27,20 @@ namespace Business.Services.Concretes
         public IResult RegisterPerson(RegisterPersonDto registerPerson)
         {
             byte[] passwordHash;
+            byte[] passwordSalt;
             var person = _personService.GetByEmail(registerPerson.Email);
             if (person is not null)
                 return new Result("Kullanıcı zaten mevcut!", false);
-            HashingHelper.CreatePasswordHash(registerPerson.Password, out passwordHash);
+            HashingHelper.CreatePasswordHash(registerPerson.Password,out passwordSalt, out passwordHash);
             person = new Person
             {
                 FullName = registerPerson.FullName,
                 Email = registerPerson.Email,
                 PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+
             };
-            var result = _personService.Add(person);
+            var result = _personService.Create(person);
             if (!result.Success)
                 return new Result("Kayıt Yapılamadı!", false);
             return new Result("Kayıt Yapıldı!", true);
@@ -49,14 +52,12 @@ namespace Business.Services.Concretes
             var person = _personService.GetByEmail(loginPerson.Email);
             if (person is null)
                 return new DataResult<Token>(null,"Kullanıcı bulunamadı!", false);
-            if (!HashingHelper.VerifyPasswordHash(loginPerson.Password, person.PasswordHash))
+            if (!HashingHelper.VerifyPasswordHash(loginPerson.Password,person.PasswordSalt, person.PasswordHash))
                 return new DataResult<Token>(null,"Şifre hatalı!", false);
             TokenHandler handler = new TokenHandler(_configuration);
             Token token = handler.CreateAccessToken(person);
-
+            _personService.AddRefreshToken(person.Id, token.RefreshToken, token.Expiration.AddMinutes(5));
             return new DataResult<Token>(token,true);
-
-
         }
     }
 }

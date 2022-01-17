@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Business.Services;
 
 namespace Business.Services.Abstracts
 {
-    public interface IPersonService
+    public interface IPersonService : IBaseCrudService<Person>
     {
-        IDataResult<List<Person>> GetAll();
         Person GetByEmail(string email);
-        IResult Add(Person person);
+        IResult AddRefreshToken(int id ,string refreshToken , DateTime expirationTime);
 
     }
 }

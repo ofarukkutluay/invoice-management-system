@@ -3,6 +3,7 @@ using Business.Helpers;
 using Entities.Concretes;
 using Entities.Dtos;
 using WebClient.Models.Apartment;
+using WebClient.Models.Auth;
 using WebClient.Models.FlatType;
 using WebClient.Models.House;
 using WebClient.Models.InvoiceType;
@@ -39,6 +40,9 @@ namespace WebClient.Helpers.Mapper
             CreateMap<Owner, UpdateOwnerViewModel>();
             CreateMap<CreateOwnerViewModel, Owner>();
             CreateMap<UpdateOwnerViewModel, Owner>();
+
+            CreateMap<LoginPersonViewModel, LoginPersonDto>();
+            CreateMap<RegisterPersonViewModel, RegisterPersonDto>();
         }
     }
 }

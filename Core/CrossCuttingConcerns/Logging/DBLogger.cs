@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.CrossCuttingConcerns.Logging;
-using Core.DataAccess.EntityFramework;
 
 namespace Core.CrossCuttingConcerns.Logging
 {

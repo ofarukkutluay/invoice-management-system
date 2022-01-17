@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -40,6 +41,26 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Resident" asp-action="Index">Resident</a>
                         </li>
                     </ul>
+                    <div class="text-end">
+                        @{
+
+                            if (TempData["TokenTempView"] == null)
+                            {
+                                <a class="btn text-dark" asp-area="" asp-controller="Auth" asp-action="Login">Login</a>
+                                <a class="btn btn-primary text-white " asp-area="" asp-controller="Auth" asp-action="Register">Register</a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-primary text-white " asp-area="" asp-controller="Auth" asp-action="LogOut">LogOut</a>
+
+                            }
+
+                            TempData.Keep("TokenTempView");
+
+                        }
+
+
+                    </div>
                 </div>
             </div>
         </nav>
@@ -49,7 +70,7 @@
         {
             <div id="liveAlertPlaceholder">
                 <div class="alert alert-@TempData["alertType"] alert-dismissible" role="alert">
-                   <strong>@TempData["alertType"].ToString()?.ToUpper() !!</strong> @TempData["alertMessage"]
+                    <strong>@TempData["alertType"].ToString()?.ToUpper() !!</strong> @TempData["alertMessage"]
                 </div>
             </div>
         }

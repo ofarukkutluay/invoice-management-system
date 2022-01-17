@@ -5,6 +5,8 @@ using DataAccess.Abstracts;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;
+using Core.Entities.Concretes;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Business.Services.Concretes
 {
@@ -19,7 +21,7 @@ namespace Business.Services.Concretes
             _mapper = mapper;
         }
 
-        //[Authorize(Roles = "Admin")]
+        
         public IResult Create(Apartment createApartment)
         {
             var apartment = _apartmentRepository.Get(x=> x.Name== createApartment.Name);
@@ -33,7 +35,7 @@ namespace Business.Services.Concretes
             return new Result("Kayıt Edildi!",true);
 
         }
-
+        
         public IResult Delete(int id)
         {
             var apartment = _apartmentRepository.Get(x=> x.Id==id);

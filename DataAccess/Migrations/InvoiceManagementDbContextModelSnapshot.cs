@@ -19,7 +19,7 @@ namespace DataAccess.Migrations
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Core.Entities.Concretes.Log", b =>
+            modelBuilder.Entity("Core.CrossCuttingConcerns.Logging.Log", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,11 +59,20 @@ namespace DataAccess.Migrations
                     b.Property<long>("MobileNumber")
                         .HasColumnType("bigint");
 
-                    b.Property<int>("OperationClaim")
-                        .HasColumnType("int");
+                    b.Property<string>("OperationClaim")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("PasswordHash")
                         .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<DateTime?>("RefresTokenExpireDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
