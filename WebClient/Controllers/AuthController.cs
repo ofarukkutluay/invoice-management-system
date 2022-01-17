@@ -38,7 +38,7 @@ namespace WebClient.Controllers
                 HttpContext.Session.SetString("Token", result.Data.AccessToken);
                 TokenTempView = result.Data.AccessToken;
                 SuccessAlert(result.Message);
-                ;
+                
                 return Redirect(HttpContext.Request.PathBase);
             }
             DangerAlert(result.Message);

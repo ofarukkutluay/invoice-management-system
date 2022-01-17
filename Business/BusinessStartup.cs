@@ -46,7 +46,6 @@ namespace Business
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Token:SecurityKey"])),
                     ClockSkew = TimeSpan.Zero
                 };
-                opt.ForwardSignIn = "/Auth/Login";
             });
 
         }

@@ -6,6 +6,7 @@ using WebClient.Models.Apartment;
 using WebClient.Models.Auth;
 using WebClient.Models.FlatType;
 using WebClient.Models.House;
+using WebClient.Models.Invoice;
 using WebClient.Models.InvoiceType;
 using WebClient.Models.Owner;
 
@@ -43,6 +44,12 @@ namespace WebClient.Helpers.Mapper
 
             CreateMap<LoginPersonViewModel, LoginPersonDto>();
             CreateMap<RegisterPersonViewModel, RegisterPersonDto>();
+
+            CreateMap<Invoice, GetInvoiceViewModel>();
+            CreateMap<Invoice, GetInvoicesViewModel>();
+            CreateMap<Invoice, UpdateInvoiceViewModel>();
+            CreateMap<CreateInvoiceViewModel, Invoice>();
+            CreateMap<UpdateInvoiceViewModel, Invoice>();
         }
     }
 }

@@ -37,6 +37,7 @@ namespace Business.DependencyResolvers
             serviceCollection.AddScoped<IInvoiceTypeService, InvoiceTypeManager>();
             serviceCollection.AddScoped<IOwnerService, OwnerManager>();
             serviceCollection.AddScoped<IResidentService, ResidentManager>();
+            serviceCollection.AddScoped<IInvoiceService, InvoiceManager>();
 
 
         }

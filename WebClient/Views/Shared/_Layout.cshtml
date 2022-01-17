@@ -1,5 +1,4 @@
-﻿@using Microsoft.AspNetCore.Http
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -40,10 +39,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Resident" asp-action="Index">Resident</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Invoice" asp-action="Index">Invoice</a>
+                        </li>
                     </ul>
                     <div class="text-end">
                         @{
-
+                            
                             if (TempData["TokenTempView"] == null)
                             {
                                 <a class="btn text-dark" asp-area="" asp-controller="Auth" asp-action="Login">Login</a>
@@ -52,11 +54,8 @@
                             else
                             {
                                 <a class="btn btn-primary text-white " asp-area="" asp-controller="Auth" asp-action="LogOut">LogOut</a>
-
                             }
-
                             TempData.Keep("TokenTempView");
-
                         }
 
 
