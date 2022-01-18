@@ -22,6 +22,7 @@ namespace DataAccess.Concretes.EntityFramework
         public DbSet<Resident> Residents { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<InvoiceType> InvoiceTypes { get; set; }
+        public DbSet<PayInvoicePerson> PayInvoicePersons { get; set; }
         public DbSet<Log> Logs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -37,7 +38,7 @@ namespace DataAccess.Concretes.EntityFramework
             modelBuilder.Entity<InvoiceType>(ConfigureInvoiceType);
             modelBuilder.Entity<Invoice>(ConfigureInvoice);
             modelBuilder.Entity<Log>(ConfigureLog);
-
+            modelBuilder.Entity<PayInvoicePerson>(ConfigurePayInvoicePerson);
 
             base.OnModelCreating(modelBuilder);
         }
@@ -89,14 +90,18 @@ namespace DataAccess.Concretes.EntityFramework
             builder.HasKey(x=>x.Id);
             builder.HasOne<InvoiceType>().WithMany().HasForeignKey(x=>x.InvoiceTypeId);
             builder.HasOne<House>().WithMany().HasForeignKey(x=>x.HouseId);
-            builder.HasOne<Person>().WithMany().HasForeignKey(x=>x.PayingPersonId);
         }
 
         private void ConfigureLog(EntityTypeBuilder<Log> builder)
         {
             builder.HasKey(x => x.Id);
         }
-
+        private void ConfigurePayInvoicePerson(EntityTypeBuilder<PayInvoicePerson> builder)
+        {
+            builder.HasKey(ow => new { ow.InvoiceId, ow.PersonId });
+            builder.HasOne<Invoice>().WithMany().HasForeignKey(x => x.InvoiceId);
+            builder.HasOne<Person>().WithMany().HasForeignKey(x => x.PersonId);
+        }
 
 
     }

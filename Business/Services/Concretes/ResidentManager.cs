@@ -23,6 +23,7 @@ namespace Business.Services.Concretes
         }
         public IResult Create(Resident entity)
         {
+            entity.CarPlate.ToUpper();
             _residentRepository.Add(entity);
             var result = _residentRepository.SaveChanges();
             if (result == 0)
@@ -47,6 +48,7 @@ namespace Business.Services.Concretes
             var resident = _residentRepository.Get(x => x.PersonId == id);
             if (resident is null)
                 return new Result("Kullanıcı bulunamadı!", false);
+            entity.CarPlate.ToUpper();
             _residentRepository.Update(entity);
             var result = _residentRepository.SaveChanges();
             if (result == 0)

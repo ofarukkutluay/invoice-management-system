@@ -32,8 +32,6 @@
                 <th scope="col">Tutar</th>
                 <th scope="col">Tarihi</th>
                 <th scope="col">Status</th>
-                <th scope="col">Ödeyen</th>
-                <th scope="col">Ödeme tarihi</th>
                 <th scope="col"></th>
             </tr>
             </thead>
@@ -47,8 +45,6 @@
                     <td width="20%">@item.Amount</td>
                     <td width="10%">@item.InvoiceDate</td>
                     <td width="10%">@item.Status</td>
-                    <td width="10%">@item.PayingPersonId</td>
-                    <td width="10%">@item.DueDate</td>
                     <td class="text-center">
                         <a asp-controller="Invoice" asp-action="Delete" asp-route-Id=@item.Id class="btn btn-danger">
                             Del

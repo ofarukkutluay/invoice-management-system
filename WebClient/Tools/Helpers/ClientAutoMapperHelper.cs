@@ -9,6 +9,7 @@ using WebClient.Models.House;
 using WebClient.Models.Invoice;
 using WebClient.Models.InvoiceType;
 using WebClient.Models.Owner;
+using WebClient.Models.Resident;
 
 namespace WebClient.Helpers.Mapper
 {
@@ -41,6 +42,11 @@ namespace WebClient.Helpers.Mapper
             CreateMap<Owner, UpdateOwnerViewModel>();
             CreateMap<CreateOwnerViewModel, Owner>();
             CreateMap<UpdateOwnerViewModel, Owner>();
+
+            CreateMap<Resident, GetResidentsViewModel>();
+            CreateMap<Resident, UpdateResidentViewModel>();
+            CreateMap<CreateResidentViewModel, Resident>();
+            CreateMap<UpdateResidentViewModel, Resident>();
 
             CreateMap<LoginPersonViewModel, LoginPersonDto>();
             CreateMap<RegisterPersonViewModel, RegisterPersonDto>();
