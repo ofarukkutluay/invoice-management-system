@@ -10,7 +10,15 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using CreditCardServiceApi.Applications;
+using CreditCardServiceApi.Applications.Company.Commands;
+using CreditCardServiceApi.Applications.Company.Queries;
+using CreditCardServiceApi.Applications.Pay.Commands;
+using CreditCardServiceApi.Applications.Pay.Queries;
+using CreditCardServiceApi.DataAccess;
+using CreditCardServiceApi.DataAccess.Abstracts;
 
 namespace CreditCardServiceApi
 {
@@ -32,6 +40,16 @@ namespace CreditCardServiceApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CreditCardServiceApi", Version = "v1" });
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+            services.AddScoped<ICompanyRepository, MongoDbCompanyDal>();
+            services.AddScoped<ICreditCardRepository, MongoDbCreditCardDal>();
+            services.AddScoped<IPayRepository, MongoDbPayDal>();
+
+            services.AddScoped<ICommandService<CreateCompanyViewModel>, CreateCompanyCommand>();
+            services.AddScoped<IQueryService<IEnumerable<GetCompaniesViewModel>>, GetCompaniesQuery>();
+            services.AddScoped<ICommandService<CreatePayViewModel>, CreatePayCommand>();
+            services.AddScoped<IQueryService<IEnumerable<GetPaysViewModel>>, GetPaysQuery>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
