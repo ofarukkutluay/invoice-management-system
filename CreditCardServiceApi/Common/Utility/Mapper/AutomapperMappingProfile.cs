@@ -18,7 +18,8 @@ namespace CreditCardServiceApi.Common.Utility.Mapper
             CreateMap<CreatePayViewModel.CreateCreditCardVM, CreditCard>();
 
             CreateMap<Pay, GetPaysViewModel>();
-            
+            CreateMap<CreditCard,GetPaysViewModel.CreateCreditCardVM>();
+
         }
     }
 }

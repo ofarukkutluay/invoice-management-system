@@ -6,18 +6,16 @@ using CreditCardServiceApi.DataAccess.Abstracts;
 
 namespace CreditCardServiceApi.Applications.Pay.Queries
 {
-    public class GetPaysQuery : IQueryService<IEnumerable<GetPaysViewModel>>
+    public class GetPaysQuery
     {
         public string CompanyId { get; set; }
 
         private readonly IPayRepository _payRepository;
-        private readonly ICreditCardRepository _creditCardRepository;
         private readonly IMapper _mapper;
 
-        public GetPaysQuery(IPayRepository payRepository, ICreditCardRepository creditCardRepository, IMapper mapper)
+        public GetPaysQuery(IPayRepository payRepository, IMapper mapper)
         {
             _payRepository = payRepository;
-            _creditCardRepository = creditCardRepository;
             _mapper = mapper;
         }
 
@@ -35,8 +33,15 @@ namespace CreditCardServiceApi.Applications.Pay.Queries
         public string Id { get; set; }
         public double Amount { get; set; }
         public DateTime PayTime { get; set; }
-        public string CardHolderName { get; set; }
-        public long CreditCardNumber { get; set; }
+        public CreateCreditCardVM CreditCard { get; set; }
+        public struct CreateCreditCardVM
+        {
+            public string CardHolderName { get; set; }
+            public long CardNumber { get; set; }
+            public int ExpirationMouth { get; set; }
+            public int ExpirationYear { get; set; }
+            public int CVCCode { get; set; }
+        }
         public bool Status { get; set; }
         public int StatusCode { get; set; }
         public string ResultMessage { get; set; }

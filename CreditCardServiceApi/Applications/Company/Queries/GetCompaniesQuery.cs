@@ -4,7 +4,7 @@ using CreditCardServiceApi.DataAccess.Abstracts;
 
 namespace CreditCardServiceApi.Applications.Company.Queries
 {
-    public class GetCompaniesQuery : IQueryService<IEnumerable<GetCompaniesViewModel>>
+    public class GetCompaniesQuery
     {
         private readonly ICompanyRepository _companyRepository;
         private readonly IMapper _mapper;
@@ -22,7 +22,6 @@ namespace CreditCardServiceApi.Applications.Company.Queries
             return vmModel;
         }
 
-        public string CompanyId { get; set; }
     }
 
     public class GetCompaniesViewModel

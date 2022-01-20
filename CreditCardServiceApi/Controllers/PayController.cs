@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Net;
+using AutoMapper;
 using CreditCardServiceApi.Applications;
 using CreditCardServiceApi.Applications.Pay.Commands;
 using CreditCardServiceApi.Applications.Pay.Queries;
+using CreditCardServiceApi.DataAccess.Abstracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,28 +14,30 @@ namespace CreditCardServiceApi.Controllers
     [ApiController]
     public class PayController : ControllerBase
     {
-        private ICommandService<CreatePayViewModel> _commandService;
-        private IQueryService<IEnumerable<GetPaysViewModel>> _queryService;
+        private readonly IPayRepository _payRepository;
+        private readonly IMapper _mapper;
 
-        public PayController(ICommandService<CreatePayViewModel> commandService, IQueryService<IEnumerable<GetPaysViewModel>> queryService)
+        public PayController(IPayRepository payRepository, IMapper mapper)
         {
-            _commandService = commandService;
-            _queryService = queryService;
+            _payRepository = payRepository;
+            _mapper = mapper;
         }
 
         [HttpPost]
         public IActionResult Create(CreatePayViewModel model)
         {
-            _commandService.Model = model;
-            _commandService.Handle();
-            return Ok("Ödeme başarılı");
+            CreatePayCommand command = new CreatePayCommand(_payRepository, _mapper);
+            command.Model = model;
+            var result = command.Handle();
+            return Ok(result);
         }
 
         [HttpGet("[action]")]
         public IActionResult GetCompanyId(string companyId)
         {
-            _queryService.CompanyId = companyId;
-            var result = _queryService.Handle();
+            GetPaysQuery query = new GetPaysQuery(_payRepository, _mapper);
+            query.CompanyId = companyId;
+            var result = query.Handle();
             return Ok(result);
         }
 

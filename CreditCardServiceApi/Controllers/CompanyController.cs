@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
+using AutoMapper;
 using CreditCardServiceApi.Applications;
 using CreditCardServiceApi.Applications.Company.Commands;
 using CreditCardServiceApi.Applications.Company.Queries;
+using CreditCardServiceApi.DataAccess.Abstracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,28 +14,30 @@ namespace CreditCardServiceApi.Controllers
     [ApiController]
     public class CompanyController : ControllerBase
     {
-        private ICommandService<CreateCompanyViewModel> _createCommand;
-        private IQueryService<IEnumerable<GetCompaniesViewModel>> _queryService;
+        private readonly ICompanyRepository _companyRepository;
+        private readonly IMapper _mapper;
 
-        public CompanyController(ICommandService<CreateCompanyViewModel> createCommand,
-            IQueryService<IEnumerable<GetCompaniesViewModel>> queryService)
+        public CompanyController(ICompanyRepository companyRepository, IMapper mapper)
         {
-            _createCommand = createCommand;
-            _queryService = queryService;
+            _companyRepository = companyRepository;
+            _mapper = mapper;
         }
 
         [HttpPost]
         public IActionResult Create(CreateCompanyViewModel model)
         {
-            _createCommand.Model = model;
-            _createCommand.Handle();
+            CreateCompanyCommand command = new CreateCompanyCommand(_companyRepository, _mapper);
+            command.Model = model;
+            command.Handle();
             return Ok();
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            var result = _queryService.Handle();
+            GetCompaniesQuery query = new GetCompaniesQuery(_companyRepository, _mapper);
+            
+            var result = query.Handle();
             return Ok(result);
         }
     }

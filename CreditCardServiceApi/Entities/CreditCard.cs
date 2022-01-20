@@ -2,7 +2,7 @@
 
 namespace CreditCardServiceApi.Entities
 {
-    public class CreditCard : EntityBase
+    public class CreditCard
     {
         public string CardHolderName { get; set; }
         public long CardNumber { get; set; }

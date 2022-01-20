@@ -43,13 +43,8 @@ namespace CreditCardServiceApi
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             services.AddScoped<ICompanyRepository, MongoDbCompanyDal>();
-            services.AddScoped<ICreditCardRepository, MongoDbCreditCardDal>();
             services.AddScoped<IPayRepository, MongoDbPayDal>();
 
-            services.AddScoped<ICommandService<CreateCompanyViewModel>, CreateCompanyCommand>();
-            services.AddScoped<IQueryService<IEnumerable<GetCompaniesViewModel>>, GetCompaniesQuery>();
-            services.AddScoped<ICommandService<CreatePayViewModel>, CreatePayCommand>();
-            services.AddScoped<IQueryService<IEnumerable<GetPaysViewModel>>, GetPaysQuery>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,17 +1,19 @@
 ﻿using System;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace CreditCardServiceApi.Entities
 {
     public class Pay : EntityBase
     {
 
-        public long CreditCardNumber { get; set; }
+        public CreditCard CreditCard { get; set; }
         public string CompanyId { get; set; }
         public double Amount { get; set; }
+        
+        [BsonDateTimeOptions(DateOnly = true)]
         public DateTime PayTime { get; set; } = DateTime.Now;
-        public bool Status { get; set; }
-        public int StatusCode { get; set; }
-        public string  ResultMessage { get; set; }
+        
 
     }
 }

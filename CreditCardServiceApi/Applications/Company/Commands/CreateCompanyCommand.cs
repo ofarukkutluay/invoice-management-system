@@ -5,7 +5,7 @@ using CreditCardServiceApi.DataAccess.Abstracts;
 
 namespace CreditCardServiceApi.Applications.Company.Commands
 {
-    public class CreateCompanyCommand : ICommandService<CreateCompanyViewModel>
+    public class CreateCompanyCommand
     {
         public CreateCompanyViewModel Model { get; set; }
         private readonly ICompanyRepository _companyRepository;

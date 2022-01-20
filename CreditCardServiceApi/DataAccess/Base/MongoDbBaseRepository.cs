@@ -56,8 +56,7 @@ namespace CreditCardServiceApi.DataAccess.Base
         {
             return _collection
                 .AsQueryable<TEntity>()
-                .Where(predicate.Compile())
-                .ToList();
+                .Where(predicate.Compile());
         }
         public IEnumerable<TEntity> GetAll()
         {
