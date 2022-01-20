@@ -48,8 +48,11 @@ namespace Business.Services.Concretes
             var resident = _residentRepository.Get(x => x.PersonId == id);
             if (resident is null)
                 return new Result("Kullanıcı bulunamadı!", false);
-            entity.CarPlate.ToUpper();
-            _residentRepository.Update(entity);
+
+            resident.HouseId = entity.HouseId == default ? resident.HouseId : entity.HouseId;
+            resident.CarPlate = entity.CarPlate == default ? resident.CarPlate : entity.CarPlate.ToUpper();
+            resident.IsHirer = entity.IsHirer == default ? resident.IsHirer : entity.IsHirer;
+
             var result = _residentRepository.SaveChanges();
             if (result == 0)
                 return new Result("Db ye kayıt ederken bir sorun oluştu", false);

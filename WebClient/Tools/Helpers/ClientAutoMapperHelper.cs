@@ -52,7 +52,7 @@ namespace WebClient.Helpers.Mapper
             CreateMap<RegisterPersonViewModel, RegisterPersonDto>();
 
             CreateMap<Invoice, GetInvoiceViewModel>();
-            CreateMap<Invoice, GetInvoicesViewModel>();
+            CreateMap<InvoiceDto, GetInvoicesViewModel>();
             CreateMap<Invoice, UpdateInvoiceViewModel>();
             CreateMap<CreateInvoiceViewModel, Invoice>();
             CreateMap<UpdateInvoiceViewModel, Invoice>();

@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
 using Business.Services.Abstracts;
+using Core.Entities.Concretes;
 using Entities.Concretes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebClient.Models.Owner;
 
 namespace WebClient.Controllers
 {
+    [Authorize(Roles = OperationClaims.Admin)]
     public class OwnerController : BaseController
     {
         private readonly IOwnerService _ownerService;

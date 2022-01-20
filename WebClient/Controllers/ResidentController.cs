@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
 using Business.Services.Abstracts;
+using Core.Entities.Concretes;
 using Entities.Concretes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebClient.Models.Resident;
 
 namespace WebClient.Controllers
 {
+    [Authorize(Roles = OperationClaims.Admin)]
     public class ResidentController : BaseController
     {
         private readonly IResidentService _residentService;

@@ -181,3 +181,5 @@ E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\ne
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\Invoice\Create.cshtml.g.cs
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\Invoice\Edit.cshtml.g.cs
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\Invoice\Index.cshtml.g.cs
+E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\Order\Index.cshtml.g.cs
+E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\Home\Forbidden.cshtml.g.cs

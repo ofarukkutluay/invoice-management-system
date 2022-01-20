@@ -4,6 +4,8 @@ using Entities.Concretes;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using Core.Entities.Concretes;
+using Microsoft.AspNetCore.Authorization;
 using WebClient.Models.FlatType;
 
 namespace WebClient.Controllers
@@ -31,6 +33,7 @@ namespace WebClient.Controllers
 
         }
 
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Create()
         {
             return View();
@@ -38,6 +41,7 @@ namespace WebClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Create(CreateFlatTypeViewModel createFlatType)
         {
             FlatType model = _mapper.Map<FlatType>(createFlatType);
@@ -46,6 +50,7 @@ namespace WebClient.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Delete(int id)
         {
             var result = _flatTypeService.Delete(id);
@@ -59,6 +64,7 @@ namespace WebClient.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Edit(int id)
         {
             var result = _flatTypeService.GetById(id);
@@ -72,6 +78,7 @@ namespace WebClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Edit(int id, UpdateFlatTypeViewModel model)
         {
             FlatType mapObj = _mapper.Map<FlatType>(model);

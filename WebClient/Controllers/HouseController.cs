@@ -2,7 +2,9 @@
 using System.Linq;
 using AutoMapper;
 using Business.Services.Abstracts;
+using Core.Entities.Concretes;
 using Entities.Concretes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WebClient.Models.House;
@@ -31,6 +33,7 @@ namespace WebClient.Controllers
             return View();
         }
 
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Create()
         {
             
@@ -40,6 +43,7 @@ namespace WebClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Create(CreateHouseViewModel model)
         {
             var house = _mapper.Map<House>(model);
@@ -52,6 +56,8 @@ namespace WebClient.Controllers
             DangerAlert(result.Message);
             return View();
         }
+
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Edit(int id)
         {
             var data = _houseService.GetById(id);
@@ -62,6 +68,7 @@ namespace WebClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Edit(int id,UpdateHouseViewModel model)
         {
             var house = _mapper.Map<House>(model);
@@ -75,7 +82,7 @@ namespace WebClient.Controllers
             return View();
         }
 
-
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Delete(int id)
         {
             var result = _houseService.Delete(id);

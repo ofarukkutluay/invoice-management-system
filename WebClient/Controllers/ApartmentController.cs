@@ -36,7 +36,7 @@ namespace WebClient.Controllers
 
         }
 
-        [Authorize(Roles = "Admin,User")]
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Create()
         {
             return View();
@@ -44,6 +44,7 @@ namespace WebClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Create(CreateApartmentViewModel createApartmentVM)
         {
             Apartment model = _mapper.Map<Apartment>(createApartmentVM);
@@ -52,6 +53,7 @@ namespace WebClient.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Delete(int id)
         {
             var result = _apartmentService.Delete(id);
@@ -64,6 +66,7 @@ namespace WebClient.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Edit(int id)
         {
             var result = _apartmentService.GetById(id);
@@ -77,6 +80,7 @@ namespace WebClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Edit(int id, UpdateApartmentViewModel model)
         {
             Apartment mapObj = _mapper.Map<Apartment>(model);

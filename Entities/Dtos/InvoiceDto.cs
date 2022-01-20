@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Core.Entities.Abstracts;
 
-namespace WebClient.Models.Invoice
+namespace Entities.Dtos
 {
-    public class GetInvoicesViewModel
+    public class InvoiceDto : IDto
     {
         public int Id { get; set; }
         public string InvoiceType { get; set; }
@@ -10,6 +15,5 @@ namespace WebClient.Models.Invoice
         public double Amount { get; set; }
         public bool Status { get; set; }
         public DateTime InvoiceDate { get; set; }
-
     }
 }

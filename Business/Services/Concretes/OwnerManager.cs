@@ -48,7 +48,9 @@ namespace Business.Services.Concretes
             var owner = _ownerRepository.Get(x => x.PersonId == id);
             if (owner is null)
                 return new Result("Kayıt bulunamadı", false);
-            _ownerRepository.Update(entity);
+
+            owner.HouseId = entity.HouseId == default ? owner.HouseId : entity.HouseId;
+
             var result = _ownerRepository.SaveChanges();
             if (result == 0)
                 return new Result("Db ye kayıt ederken bir sorun oluştu", false);

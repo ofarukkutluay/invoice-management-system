@@ -36,10 +36,9 @@ namespace WebClient.Controllers
             if (result.Success)
             {
                 HttpContext.Session.SetString("Token", result.Data.AccessToken);
-                TokenTempView = result.Data.AccessToken;
                 SuccessAlert(result.Message);
                 
-                return Redirect(HttpContext.Request.PathBase);
+                return RedirectToAction("Index","Home");
             }
             DangerAlert(result.Message);
             return View();
@@ -68,7 +67,6 @@ namespace WebClient.Controllers
         public IActionResult LogOut()
         {
             HttpContext.Session.Remove("Token");
-            TempData.Remove("TokenTempView");
             return RedirectToAction("Index","Home");
         }
     }

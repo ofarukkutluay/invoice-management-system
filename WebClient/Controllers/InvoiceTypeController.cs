@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
 using Business.Services.Abstracts;
+using Core.Entities.Concretes;
 using Entities.Concretes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebClient.Models.InvoiceType;
 
@@ -30,6 +32,7 @@ namespace WebClient.Controllers
 
         }
 
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Create()
         {
             return View();
@@ -37,6 +40,7 @@ namespace WebClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Create(CreateInvoiceTypeViewModel createFlatType)
         {
             InvoiceType model = _mapper.Map<InvoiceType>(createFlatType);
@@ -45,6 +49,7 @@ namespace WebClient.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Delete(int id)
         {
             var result = _invoiceTypeService.Delete(id);
@@ -57,6 +62,7 @@ namespace WebClient.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Edit(int id)
         {
             var result = _invoiceTypeService.GetById(id);
@@ -70,6 +76,7 @@ namespace WebClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Edit(int id, UpdateInvoiceTypeViewModel model)
         {
             InvoiceType mapObj = _mapper.Map<InvoiceType>(model);
