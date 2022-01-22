@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WebClient.Models.Invoice;
+using WebClient.Models.Payment;
 
 namespace WebClient.Controllers
 {
@@ -106,6 +107,17 @@ namespace WebClient.Controllers
             });
             ViewData.Add("Houses", selectHouses);
             ViewData.Add("InvoiceTypes", selectInvoiceTypes);
+        }
+
+        public IActionResult Pay(int id)
+        {
+            var invoice = _invoiceService.GetById(id).Data;
+            CreatePayOrderViewModel viewModel = new CreatePayOrderViewModel()
+            {
+                InvoiceId = invoice.Id,
+                Amount = invoice.Amount
+            };
+            return RedirectToAction("Index", "Payment", viewModel);
         }
     }
 }

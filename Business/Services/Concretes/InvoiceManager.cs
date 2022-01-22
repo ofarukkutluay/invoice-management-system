@@ -89,5 +89,19 @@ namespace Business.Services.Concretes
                 return new DataResult<InvoiceDto>(null, "Fatura bulunamadı!", false);
             return new DataResult<InvoiceDto>(invoice, true);
         }
+
+        public IResult PaySuccess(int id)
+        {
+            var invoice = _invoiceRepository.Get(x => x.Id == id);
+            if (invoice is null)
+                return new Result("Fatura bulunamadı!", false);
+
+            invoice.Status = false;
+
+            var result = _invoiceRepository.SaveChanges();
+            if (result == 0)
+                return new Result("DB ye kayıt ederken bir hata oluştu", false);
+            return new Result("Ödeme alındı olarak güncellendi", true);
+        }
     }
 }

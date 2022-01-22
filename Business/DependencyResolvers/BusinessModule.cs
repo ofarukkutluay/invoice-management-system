@@ -11,6 +11,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Helpers.DbLoging;
+using Business.Services.OutsideService.PaymentService;
 using Core.CrossCuttingConcerns.Logging;
 
 namespace Business.DependencyResolvers
@@ -28,6 +29,7 @@ namespace Business.DependencyResolvers
             serviceCollection.AddScoped<IOwnerRepository,EfOwnerDal>();
             serviceCollection.AddScoped<IResidentRepository,EfResidentDal>();
             serviceCollection.AddScoped<ILogRepository, EfLogDal>();
+            serviceCollection.AddScoped<IPayInvoicePersonRepository, EfPayInvoicePersonDal>();
             
             serviceCollection.AddScoped<IPersonService, PersonManager>();
             serviceCollection.AddScoped<IAuthService,AuthManager>();
@@ -38,6 +40,9 @@ namespace Business.DependencyResolvers
             serviceCollection.AddScoped<IOwnerService, OwnerManager>();
             serviceCollection.AddScoped<IResidentService, ResidentManager>();
             serviceCollection.AddScoped<IInvoiceService, InvoiceManager>();
+            serviceCollection.AddScoped<IPayInvoicePersonService,PayInvoicePersonManager>();
+
+            serviceCollection.AddScoped<IPaymentService,PaymentManager>();
 
 
         }

@@ -150,8 +150,8 @@ namespace DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Amount")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("HouseId")
                         .HasColumnType("int");
@@ -215,8 +215,8 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("PayingAmount")
-                        .HasColumnType("float");
+                    b.Property<decimal>("PayingAmount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("InvoiceId", "PersonId");
 

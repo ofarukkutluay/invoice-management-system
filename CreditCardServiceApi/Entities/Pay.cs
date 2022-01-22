@@ -9,9 +9,7 @@ namespace CreditCardServiceApi.Entities
 
         public CreditCard CreditCard { get; set; }
         public string CompanyId { get; set; }
-        public double Amount { get; set; }
-        
-        [BsonDateTimeOptions(DateOnly = true)]
+        public decimal Amount { get; set; }
         public DateTime PayTime { get; set; } = DateTime.Now;
         
 

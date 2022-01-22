@@ -14,7 +14,6 @@ namespace WebClient.Controllers
         private readonly IAuthService _authService;
         private readonly IMapper _mapper;
 
-        [TempData] public string TokenTempView { get; set; }
 
         public AuthController(IAuthService authService, IMapper mapper)
         {
@@ -36,6 +35,7 @@ namespace WebClient.Controllers
             if (result.Success)
             {
                 HttpContext.Session.SetString("Token", result.Data.AccessToken);
+                HttpContext.Session.SetString("UserMail",model.Email);
                 SuccessAlert(result.Message);
                 
                 return RedirectToAction("Index","Home");
@@ -67,6 +67,7 @@ namespace WebClient.Controllers
         public IActionResult LogOut()
         {
             HttpContext.Session.Remove("Token");
+            HttpContext.Session.Remove("UserMail");
             return RedirectToAction("Index","Home");
         }
     }

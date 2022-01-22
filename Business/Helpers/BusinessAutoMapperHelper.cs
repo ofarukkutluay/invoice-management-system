@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Business.Services.OutsideService.PaymentService;
+using Entities.Dtos;
 
 namespace Business.Helpers
 {
@@ -6,7 +8,8 @@ namespace Business.Helpers
     {
         public BusinessAutoMapperHelper()
         {
-                       
+            CreateMap<PayOrderDto, PaymentOrder>();
+
         }
     }
 }

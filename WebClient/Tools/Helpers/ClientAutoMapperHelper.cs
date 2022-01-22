@@ -9,6 +9,7 @@ using WebClient.Models.House;
 using WebClient.Models.Invoice;
 using WebClient.Models.InvoiceType;
 using WebClient.Models.Owner;
+using WebClient.Models.Payment;
 using WebClient.Models.Resident;
 
 namespace WebClient.Helpers.Mapper
@@ -56,6 +57,8 @@ namespace WebClient.Helpers.Mapper
             CreateMap<Invoice, UpdateInvoiceViewModel>();
             CreateMap<CreateInvoiceViewModel, Invoice>();
             CreateMap<UpdateInvoiceViewModel, Invoice>();
+
+            CreateMap<CreatePayOrderViewModel, PayOrderDto>();
         }
     }
 }

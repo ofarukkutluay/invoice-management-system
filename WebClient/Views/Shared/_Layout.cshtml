@@ -1,4 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
+@using Core.Entities.Concretes
+@using System.Security.Claims
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,31 +36,34 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="InvoiceType" asp-action="Index">InvoiceType</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Owner" asp-action="Index">Owner</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Resident" asp-action="Index">Resident</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Invoice" asp-action="Index">Invoice</a>
-                        </li>
+
+                        @if (Context.User.IsInRole(OperationClaims.Admin))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Owner" asp-action="Index">Owner</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Resident" asp-action="Index">Resident</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Invoice" asp-action="Index">Invoice</a>
+                            </li>
+                        }
                     </ul>
                     <div class="text-end">
+
                         @{
-                            ;
-                            if (Context.Session.GetString("Token")== null)
+                            if (Context.Session.GetString("Token") == null)
                             {
                                 <a class="btn text-dark" asp-area="" asp-controller="Auth" asp-action="Login">Login</a>
                                 <a class="btn btn-primary text-white " asp-area="" asp-controller="Auth" asp-action="Register">Register</a>
                             }
                             else
                             {
+                                <a class="text-black">@Context.User.Claims.FirstOrDefault(x=>x.Type==ClaimTypes.Name).Value</a>
                                 <a class="btn btn-primary text-white " asp-area="" asp-controller="Auth" asp-action="LogOut">LogOut</a>
                             }
                         }
-
-
                     </div>
                 </div>
             </div>

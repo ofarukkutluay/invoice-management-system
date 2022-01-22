@@ -13,10 +13,10 @@ namespace CreditCardServiceApi.Common.Utility.Mapper
         {
             CreateMap<CreateCompanyViewModel, Company>();
             CreateMap<Company, GetCompaniesViewModel>();
-
+            
+            CreateMap<CreatePayViewModel, CreditCard>();
             CreateMap<CreatePayViewModel, Pay>();
-            CreateMap<CreatePayViewModel.CreateCreditCardVM, CreditCard>();
-
+            
             CreateMap<Pay, GetPaysViewModel>();
             CreateMap<CreditCard,GetPaysViewModel.CreateCreditCardVM>();
 

@@ -8,7 +8,7 @@ using Entities.Concretes;
 
 namespace DataAccess.Abstracts
 {
-    public interface IPayInvoicePerson : IEntityRepository<PayInvoicePerson>
+    public interface IPayInvoicePersonRepository : IEntityRepository<PayInvoicePerson>
     {
     }
 }

@@ -9,7 +9,7 @@ using Entities.Concretes;
 
 namespace DataAccess.Concretes.EntityFramework
 {
-    public class EfPayInvoicePersonDal : EfEntityRepositoryBase<PayInvoicePerson,InvoiceManagementDbContext> , IPayInvoicePerson
+    public class EfPayInvoicePersonDal : EfEntityRepositoryBase<PayInvoicePerson,InvoiceManagementDbContext> , IPayInvoicePersonRepository
     {
         public EfPayInvoicePersonDal(InvoiceManagementDbContext context) : base(context)
         {

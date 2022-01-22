@@ -22,25 +22,21 @@ namespace CreditCardServiceApi.Applications.Pay.Commands
         public IResult Handle()
         {
             var pay = _mapper.Map<Entities.Pay>(Model);
+            pay.CreditCard = _mapper.Map<CreditCard>(Model);
             _payRepository.Insert(pay);
-            return new Result(true,(int)HttpStatusCode.Created,$"{pay.Amount} TL ödeme alındı.");
+            return new Result(true, (int)HttpStatusCode.Created, $"{pay.Amount} TL ödeme alındı.");
         }
     }
 
     public class CreatePayViewModel
     {
-        public CreateCreditCardVM CreditCard { get; set; }
         public string CompanyId { get; set; }
         public double Amount { get; set; }
-        public DateTime PayTime { get; set; }
+        public string CardHolderName { get; set; }
+        public long CardNumber { get; set; }
+        public int ExpirationMouth { get; set; }
+        public int ExpirationYear { get; set; }
+        public int CVCCode { get; set; }
 
-        public struct CreateCreditCardVM
-        {
-            public string CardHolderName { get; set; }
-            public long CardNumber { get; set; }
-            public int ExpirationMouth { get; set; }
-            public int ExpirationYear { get; set; }
-            public int CVCCode { get; set; }
-        }
     }
 }

@@ -32,7 +32,7 @@ namespace CreditCardServiceApi.Controllers
             return Ok(result);
         }
 
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{companyId}")]
         public IActionResult GetCompanyId(string companyId)
         {
             GetPaysQuery query = new GetPaysQuery(_payRepository, _mapper);

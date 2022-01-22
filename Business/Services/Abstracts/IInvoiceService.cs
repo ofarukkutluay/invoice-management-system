@@ -14,5 +14,6 @@ namespace Business.Services.Abstracts
     {
         IDataResult<IEnumerable<InvoiceDto>> GetAllDetails();
         IDataResult<InvoiceDto> GetByIdDetail(int id);
+        IResult PaySuccess(int id);
     }
 }
