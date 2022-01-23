@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Business.Helpers;
+using Core.Entities.Concretes;
 using Entities.Concretes;
 using Entities.Dtos;
 using WebClient.Models.Apartment;
@@ -10,6 +11,7 @@ using WebClient.Models.Invoice;
 using WebClient.Models.InvoiceType;
 using WebClient.Models.Owner;
 using WebClient.Models.Payment;
+using WebClient.Models.Person;
 using WebClient.Models.Resident;
 
 namespace WebClient.Helpers.Mapper
@@ -59,6 +61,10 @@ namespace WebClient.Helpers.Mapper
             CreateMap<UpdateInvoiceViewModel, Invoice>();
 
             CreateMap<CreatePayOrderViewModel, PayOrderDto>();
+
+            CreateMap<PersonDto, GetPersonViewModel>();
+            CreateMap<PersonDto, UpdatePersonViewModel>();
+            CreateMap<UpdatePersonViewModel, Person>();
         }
     }
 }

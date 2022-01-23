@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Entities.Abstracts;
 
 namespace Entities.Dtos
 {
-    public class PayOrderDto
+    public class PayOrderDto :IDto
     {
         public int InvoiceId { get; set; }
         public string CardHolderName { get; set; }

@@ -28,7 +28,7 @@ namespace Business.Services.Concretes
         {
             byte[] passwordHash;
             byte[] passwordSalt;
-            var person = _personService.GetByEmail(registerPerson.Email);
+            var person = _personService.GetByEmail(registerPerson.Email).Data;
             if (person is not null)
                 return new Result("Kullanıcı zaten mevcut!", false);
             HashingHelper.CreatePasswordHash(registerPerson.Password,out passwordSalt, out passwordHash);
@@ -49,7 +49,7 @@ namespace Business.Services.Concretes
 
         public IDataResult<Token> LoginPerson(LoginPersonDto loginPerson)
         {
-            var person = _personService.GetByEmail(loginPerson.Email);
+            var person = _personService.GetByEmail(loginPerson.Email).Data;
             if (person is null)
                 return new DataResult<Token>(null,"Kullanıcı bulunamadı!", false);
             if (!HashingHelper.VerifyPasswordHash(loginPerson.Password,person.PasswordSalt, person.PasswordHash))

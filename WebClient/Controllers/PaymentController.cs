@@ -1,21 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using Business.Services.Abstracts;
-using Business.Services.OutsideService.PaymentService;
 using Core.Entities.Concretes;
-using Entities.Concretes;
 using Entities.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
-using WebClient.Models.Invoice;
 using WebClient.Models.Payment;
 
 namespace WebClient.Controllers

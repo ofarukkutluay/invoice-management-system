@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities.Dtos;
 
 namespace Business.Services.Concretes
 {
@@ -40,12 +41,31 @@ namespace Business.Services.Concretes
 
         public IResult Update(int id, Person entity)
         {
-            throw new NotImplementedException();
+            Person person = _personRepository.Get(x => x.Id == id);
+            if (person is null)
+                return new Result("Kullanıcı bulunamadı", false);
+            person.Email = entity.Email==default ? person.Email : entity.Email;
+            person.CitizenId = entity.CitizenId == default ? person.CitizenId : entity.CitizenId;
+            person.FullName = entity.FullName == default ? person.FullName : entity.FullName;
+            person.MobileNumber = entity.MobileNumber == default ? person.MobileNumber : entity.MobileNumber;
+            person.IsActive = entity.IsActive == default ? person.IsActive : entity.IsActive;
+            var result = _personRepository.SaveChanges();
+            if (result == 0)
+                return new Result("Güncelleme Yapılamadı!", false);
+            return new Result("Güncelleme Yapıldı!", true);
         }
 
         public IDataResult<Person> GetById(int id)
         {
-            throw new NotImplementedException();
+            Person person = _personRepository.Get(x => x.Id == id);
+            return new DataResult<Person>(person, true);
+        }
+
+        public IDataResult<PersonDto> GetByIdPerson(int id)
+        {
+            Person person = _personRepository.Get(x => x.Id == id);
+            PersonDto rtnObj = _mapper.Map<PersonDto>(person);
+            return new DataResult<PersonDto>(rtnObj, true);
         }
 
         public IResult AddRefreshToken(int id,string refreshToken, DateTime expirationTime)
@@ -65,10 +85,10 @@ namespace Business.Services.Concretes
             return new DataResult<IEnumerable<Person>>(data, true);
         }
 
-        public Person GetByEmail(string email)
+        public IDataResult<Person> GetByEmail(string email)
         {
-            var person = _personRepository.Get(x => x.Email == email);
-            return person;
+            Person person = _personRepository.Get(x => x.Email == email);
+            return new DataResult<Person>(person,true);
         }
     }
 }

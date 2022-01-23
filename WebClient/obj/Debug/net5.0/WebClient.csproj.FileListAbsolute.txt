@@ -183,3 +183,6 @@ E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\ne
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\Invoice\Index.cshtml.g.cs
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\Home\Forbidden.cshtml.g.cs
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\Payment\Index.cshtml.g.cs
+E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\Person\Index.cshtml.g.cs
+E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\Person\Edit.cshtml.g.cs
+E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\Shared\_MenuBar.cshtml.g.cs

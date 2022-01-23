@@ -27,6 +27,7 @@ namespace DataAccess.Concretes.EntityFramework
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Cofigurationları class olarak yönetmek istersek yakalamk için
             //modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             
             modelBuilder.Entity<Person>(ConfigurePerson);

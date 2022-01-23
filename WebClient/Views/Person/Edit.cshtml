@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model WebClient.Models.Person.UpdatePersonViewModel
+@{
+}
+
+<div class="container">
+    <h3>Kişi Güncelle</h3>
+    <form method="post" asp-action="Edit">
+        <input asp-for="Id" hidden />
+        <div class="mb-3">
+            <label asp-for="FullName" class="form-label"></label>
+            <input asp-for="FullName" class="form-control" id="fullName">
+            
+        </div>
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" id="email">
+            
+        </div>
+        <div class="mb-3">
+            <label asp-for="CitizenId" class="form-label"></label>
+            <input asp-for="CitizenId" class="form-control" id="citizenId" >
+           
+        </div>
+        <div class="mb-3">
+            <label asp-for="MobileNumber" class="form-label"></label>
+            <input asp-for="MobileNumber" class="form-control" id="mobileNumber">
+            
+        </div>
+        <input type="submit" value="Edit" class="btn btn-primary">
+    </form>
+    <div>
+        <a asp-action="Index">Back</a>
+    </div>
+
+
+</div>

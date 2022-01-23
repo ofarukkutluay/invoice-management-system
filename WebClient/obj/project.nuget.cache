@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "OwmHJuFFZL88+7Ptr7UXxN1/gZNYrBxEjNUjYK13dpX8REoKLRtJRlAWbk8Cgb4AufhSgqELxn9po7IMRlAz3w==",
+  "dgSpecHash": "XMX+JNr2BrovHr/dNvaW16cYWr3yVrG64A2inLwXwwxDHCNtXVeAOLx2S3zjnZf/mXESEOBUU5Q3Nn6pg+vBfA==",
   "success": true,
   "projectFilePath": "E:\\Projects\\CSharp\\source\\repos\\invoice-management-system\\WebClient\\WebClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ofaru\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
-    "C:\\Users\\ofaru\\.nuget\\packages\\bootstrap\\5.1.3\\bootstrap.5.1.3.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.12\\microsoft.aspnetcore.authentication.jwtbearer.5.0.12.nupkg.sha512",
     "C:\\Users\\ofaru\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
