@@ -19,9 +19,9 @@
                 <label asp-for="CarPlate" class="form-label"></label>
                 <input asp-for="CarPlate" type="text" class="form-control" id="carPlate" aria-describedby="carPlateHelp" value=@Model.CarPlate>
             </div>
-            <div class="mb-3">
-                <label asp-for="IsHirer" class="form-label"></label>
-                <input asp-for="IsHirer" class="form-control" id="isHirer" aria-describedby="isHirerHelp" value=@Model.IsHirer>
+            <div class="form-check">
+                <label class="form-check-label" for="isHirer">Kiracı mı?</label>
+                <input asp-for="IsHirer" class="form-check-input" id="isHirer" type="checkbox" value=@Model.IsHirer aria-describedby="isHirerHelp">
             </div>
         <input type="submit" value="Edit" class="btn btn-primary">
     </form>

@@ -97,7 +97,7 @@ namespace WebClient.Controllers
                 return new SelectListItem
                 {
                     Value = x.Id.ToString(),
-                    Text = $"{x.ApartmentName} no {x.DoorNumber}"
+                    Text = $"{x.ApartmentName} no: {x.DoorNumber}"
                 };
             });
             IEnumerable<SelectListItem> selectInvoiceTypes = _invoiceTypeService.GetAll().Data.Select(x => new SelectListItem

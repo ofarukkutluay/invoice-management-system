@@ -14,6 +14,8 @@ namespace Business.Services.Abstracts
     {
         IDataResult<PersonDto> GetByIdPerson(int id);
         IDataResult<Person> GetByEmail(string email);
+        IDataResult<PersonDto> GetByEmailPerson(string email);
+        IDataResult<IEnumerable<PersonDto>> GetAllPerson();
         IResult AddRefreshToken(int id ,string refreshToken , DateTime expirationTime);
 
     }

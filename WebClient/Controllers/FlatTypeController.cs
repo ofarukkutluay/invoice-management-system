@@ -47,7 +47,7 @@ namespace WebClient.Controllers
             FlatType model = _mapper.Map<FlatType>(createFlatType);
             var result = _flatTypeService.Create(model);
             SuccessAlert(result.Message);
-            return RedirectToAction("Index");
+            return Redirect(Request.Headers["Referer"].ToString());
         }
 
         [Authorize(Roles = OperationClaims.Admin)]

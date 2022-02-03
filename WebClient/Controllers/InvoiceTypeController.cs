@@ -46,7 +46,7 @@ namespace WebClient.Controllers
             InvoiceType model = _mapper.Map<InvoiceType>(createFlatType);
             var result = _invoiceTypeService.Create(model);
             SuccessAlert(result.Message);
-            return RedirectToAction("Index");
+            return Redirect(Request.Headers["Referer"].ToString());
         }
 
         [Authorize(Roles = OperationClaims.Admin)]

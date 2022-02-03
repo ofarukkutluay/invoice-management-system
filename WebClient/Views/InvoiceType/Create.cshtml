@@ -7,18 +7,18 @@
 }
 
 <div class="container">
-<h3>Fatura Tipi Ekle</h3>
-<form method="post" asp-action="Create">
-    <div class="mb-3">
-        <label asp-for="Name" class="form-label"></label>
-        <input asp-for="Name" class="form-control" id="name" aria-describedby="nameHelp">
-        <div id="nameHelp" class="form-text">Fatura tip adını giriniz.</div>
-    </div>
-    <input type="submit" value="Create" class="btn btn-primary">
-</form>
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <h3>Fatura Tipi Ekle</h3>
+    <form method="post" asp-action="Create" asp-controller="InvoiceType">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" id="name" aria-describedby="nameHelp">
+            <div id="nameHelp" class="form-text">Fatura tip adını giriniz.</div>
+        </div>
+        <input type="submit" value="Create" class="btn btn-primary">
+    </form>
+    @*<div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@
 
 
 </div>

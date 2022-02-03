@@ -58,12 +58,16 @@ namespace Business.Services.Concretes
         public IDataResult<Person> GetById(int id)
         {
             Person person = _personRepository.Get(x => x.Id == id);
+            if (person is null)
+                return new DataResult<Person>(null, "Kullanıcı bulunamadı!", false);
             return new DataResult<Person>(person, true);
         }
 
         public IDataResult<PersonDto> GetByIdPerson(int id)
         {
             Person person = _personRepository.Get(x => x.Id == id);
+            if (person is null)
+                return new DataResult<PersonDto>(null, "Kullanıcı bulunamadı!", false);
             PersonDto rtnObj = _mapper.Map<PersonDto>(person);
             return new DataResult<PersonDto>(rtnObj, true);
         }
@@ -88,7 +92,25 @@ namespace Business.Services.Concretes
         public IDataResult<Person> GetByEmail(string email)
         {
             Person person = _personRepository.Get(x => x.Email == email);
+            if (person is null)
+                return new DataResult<Person>(null, "Kullanıcı bulunamadı!", false);
             return new DataResult<Person>(person,true);
+        }
+
+        public IDataResult<PersonDto> GetByEmailPerson(string email)
+        {
+            Person person = _personRepository.Get(x => x.Email == email);
+            if (person is null)
+                return new DataResult<PersonDto>(null, "Kullanıcı bulunamadı!", false);
+            PersonDto rtnObj = _mapper.Map<PersonDto>(person);
+            return new DataResult<PersonDto>(rtnObj, true);
+        }
+
+        public IDataResult<IEnumerable<PersonDto>> GetAllPerson()
+        {
+            var data = _personRepository.GetList();
+            var rtnObj = _mapper.Map<IEnumerable<PersonDto>>(data);
+            return new DataResult<IEnumerable<PersonDto>>(rtnObj, true);
         }
     }
 }

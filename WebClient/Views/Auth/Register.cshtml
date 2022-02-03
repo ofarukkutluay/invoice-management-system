@@ -8,7 +8,7 @@
 
 <div class="container">
     <h3>Register </h3>
-    <form method="post" asp-action="Register">
+    <form method="post" asp-action="Register" asp-controller="Auth">
         <div class="mb-3">
             <label asp-for="FullName" class="form-label"></label>
             <input asp-for="FullName" type="text" class="form-control" id="fullName" aria-describedby="fullNameHelp">
@@ -26,9 +26,9 @@
         </div>
         <input type="submit" value="Register" class="btn btn-primary">
     </form>
-    <div>
+    @*<div>
         <a asp-action="Login">Giriş yapmak için...</a>
-    </div>
+    </div>*@
 
 
 </div>

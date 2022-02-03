@@ -15,9 +15,8 @@
                 <select asp-for="HouseId" asp-items="@ViewData["Houses"] as IEnumerable<SelectListItem>" class="form-control" aria-describedby="houseHelp">
                     <option disabled selected>--Select House--</option>
                 </select>
-                <a asp-controller="House" asp-action="Create" class="btn btn-primary">+</a>
             </div>
-            <div id="houseHelp" class="form-text">Ev giriniz.</div>
+            <div id="houseHelp" class="form-text">Ev giriniz. Aradığınız ev biligisi yok ise eklemek için <a asp-controller="House" asp-action="Create">tıklayınız..</a></div>
         </div>
         <div class="mb-3">
             <label asp-for="InvoiceTypeId" class="form-label"></label>
@@ -25,7 +24,7 @@
                 <select asp-for="InvoiceTypeId" asp-items="@ViewData["InvoiceTypes"] as IEnumerable<SelectListItem>" class="form-control" aria-describedby="invoiceTypeHelp">
                     <option disabled selected>--Select Invoice Type--</option>
                 </select>
-                <a asp-controller="InvoiceType" asp-action="Create" class="btn btn-primary">+</a>
+                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#invoiceTypeModal">+</a>
             </div>
             <div id="invoiceTypeHelp" class="form-text">Fatura tipini giriniz.</div>
         </div>
@@ -39,13 +38,26 @@
             <input asp-for="InvoiceDate" class="form-control" id="invoiceDate" aria-describedby="invoiceDateHelp">
             <div id="invoiceDateHelp" class="form-text">Fatura tarihi giriniz.</div>
         </div>
-        <div class="mb-3">
-            <label asp-for="Status" class="form-label"></label>
-            <input asp-for="Status" class="form-control" id="status" aria-describedby="statusHelp">
-            <div id="statusHelp" class="form-text">Status giriniz.</div>
-        </div>
         <input type="submit" value="Create" class="btn btn-primary">
     </form>
+    
+    <!-- InvoiceType Modal -->
+    <div class="modal fade" id="invoiceTypeModal" tabindex="-1" aria-labelledby="invoiceTypeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                </div>
+                <div class="modal-body">
+                    @{
+                        await Html.RenderPartialAsync("~/Views/InvoiceType/Create.cshtml");
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
     <div>
         <a asp-action="Index">Back to List</a>
     </div>

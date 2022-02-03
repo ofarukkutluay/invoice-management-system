@@ -59,5 +59,13 @@ namespace Business.Services.Concretes
             _personService.AddRefreshToken(person.Id, token.RefreshToken, token.Expiration.AddMinutes(5));
             return new DataResult<Token>(token,true);
         }
+
+        public IDataResult<PersonDto> GetPersonDtoByEmail(string email)
+        {
+            var result = _personService.GetByEmailPerson(email);
+            if (!result.Success)
+                return new DataResult<PersonDto>(null, "Kullanıcı bulunamadı!", false);
+            return result;
+        }
     }
 }

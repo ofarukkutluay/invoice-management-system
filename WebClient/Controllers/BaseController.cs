@@ -18,5 +18,11 @@ namespace WebClient.Controllers
             TempData["alertMessage"] = message;
         }
 
+        public void InfoAlert(string message)
+        {
+            TempData["alertType"] = "info";
+            TempData["alertMessage"] = message;
+        }
+
     }
 }

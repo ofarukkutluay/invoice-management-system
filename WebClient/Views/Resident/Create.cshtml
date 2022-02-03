@@ -24,10 +24,10 @@
         <input asp-for="CarPlate" class="form-control" id="carPlate" aria-describedby="carPlateHelp">
         <div id="carPlateHelp" class="form-text">Araç Plakası giriniz.</div>
     </div>
-    <div class="mb-3">
-        <label asp-for="IsHirer" class="form-label"></label>
-        <input asp-for="IsHirer" class="form-control" id="isHirer" aria-describedby="isHirerHelp">
-        <div id="isHirerHelp" class="form-text">Kiracı mı?.</div>
+    <div class="form-check">
+        <label class="form-check-label" for="isHirer">Kiracı mı?</label>
+        <input asp-for="IsHirer" class="form-check-input" id="isHirer" type="checkbox" aria-describedby="isHirerHelp">
+        <div id="isHirerHelp" class="form-text">Kiracı durumunu giriniz.</div>
     </div>
     <input type="submit" value="Create" class="btn btn-primary">
 </form>

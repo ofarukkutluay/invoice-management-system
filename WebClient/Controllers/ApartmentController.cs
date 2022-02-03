@@ -50,7 +50,7 @@ namespace WebClient.Controllers
             Apartment model = _mapper.Map<Apartment>(createApartmentVM);
             var result = _apartmentService.Create(model);
             SuccessAlert(result.Message);
-            return RedirectToAction("Index");
+            return Redirect(Request.Headers["Referer"].ToString());
         }
 
         [Authorize(Roles = OperationClaims.Admin)]

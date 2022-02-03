@@ -24,6 +24,14 @@ namespace Business.Services.Concretes
 
         public IResult Create(Owner entity)
         {
+            var owner = _ownerRepository.Get(x => x.HouseId == entity.HouseId);
+            if (owner is not null)
+            {
+                if (owner.PersonId == entity.PersonId)
+                    return new Result($"Kullanıcı, {entity.HouseId} id evin mal sahibi olarak kayıtlıdır.", false);
+                if(owner.PersonId != entity.PersonId)
+                    return new Result($"{entity.HouseId} id evin mal sahibi {owner.PersonId} id olarak kayıtlıdır. ", false);
+            }
             _ownerRepository.Add(entity);
             var result = _ownerRepository.SaveChanges();
             if (result == 0)

@@ -18,10 +18,21 @@
                 <select asp-for="ApartmentId" asp-items="@ViewData["Apartments"] as IEnumerable<SelectListItem>" class="form-control" aria-describedby="apartmentHelp">
                     <option disabled selected>--Select Apartment--</option>
                 </select>
-                <a asp-controller="Apartment" asp-action="Create" class="btn btn-primary">+</a>
+                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#apartmentModal">+</a>
             </div>
             <div id="apartmentHelp" class="form-text">Apartmanı seçiniz.</div>
 
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Flat Type</label>
+            <div class="input-group mb-3">
+                <select asp-for="FlatTypeId" asp-items="@ViewData["FlatTypes"] as IEnumerable<SelectListItem>" class="form-control" aria-describedby="flatTypeHelp">
+                    <option disabled selected>--Select FlatType--</option>
+                </select>
+                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#flatTypeModal">+</a>
+
+            </div>
+            <div id="flatTypeHelp" class="form-text">Daire tipini seçiniz.</div>
         </div>
         <div class="mb-3">
             <label asp-for="FloorLocation" class="form-label"></label>
@@ -33,21 +44,43 @@
             <input asp-for="DoorNumber" class="form-control" id="doorNumber" aria-describedby="doorNumberHelp">
             <div id="doorNumberHelp" class="form-text">Daire numarasını giriniz.</div>
         </div>
-        <div class="mb-3">
-            <label class="form-label">Flat Type</label>
-            <div class="input-group mb-3">
-                <select asp-for="FlatTypeId" asp-items="@ViewData["FlatTypes"] as IEnumerable<SelectListItem>" class="form-control" aria-describedby="flatTypeHelp">
-                    <option disabled selected>--Select FlatType--</option>
-                </select>
-                <a asp-controller="FlatType" asp-action="Create" class="btn btn-primary">+</a>
 
-            </div>
-            <div id="flatTypeHelp" class="form-text">Daire tipini seçiniz.</div>
-        </div>
         <input type="submit" value="Edit" class="btn btn-primary">
     </form>
     <div>
         <a asp-action="Index">Back to List</a>
+    </div>
+
+    <!-- Apartment Modal -->
+    <div class="modal fade" id="apartmentModal" tabindex="-1" aria-labelledby="apartmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                </div>
+                <div class="modal-body">
+                    @{
+                        await Html.RenderPartialAsync("~/Views/Apartment/Create.cshtml",model:null);
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FlatType Modal -->
+    <div class="modal fade" id="flatTypeModal" tabindex="-1" aria-labelledby="flatTypeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                </div>
+                <div class="modal-body">
+                    @{
+                        await Html.RenderPartialAsync("~/Views/FlatType/Create.cshtml",model:null);
+                    }
+                </div>
+            </div>
+        </div>
     </div>
 
 

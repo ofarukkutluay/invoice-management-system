@@ -1,29 +1,57 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@using WebClient.Models.Auth
 @model WebClient.Models.Owner.CreateOwnerViewModel
 @{
     ViewData["Title"] = "Owner Page - Create";
 }
 
 <div class="container">
-<h3>Mal Sahibi Ekle</h3>
-<form method="post" asp-action="Create">
-    <div class="mb-3">
-        <label asp-for="PersonId" class="form-label"></label>
-        <input asp-for="PersonId" class="form-control" id="personId" aria-describedby="personIdHelp">
-        <div id="personIdHelp" class="form-text">Kullanıcı id giriniz.</div>
+    <h3>Mal Sahibi Ekle</h3>
+    <form method="post" asp-action="Create">
+        <div class="mb-3">
+            <label asp-for="PersonId" class="form-label"></label>
+            <div class="input-group mb-3">
+                <select asp-for="PersonId" asp-items="@ViewData["Persons"] as IEnumerable<SelectListItem>" class="form-control" aria-describedby="personHelp">
+                    <option disabled selected>--Select Person--</option>
+                </select>
+                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">+</a>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label asp-for="HouseId" class="form-label"></label>
+            <div class="input-group mb-3">
+                <select asp-for="HouseId" asp-items="@ViewData["Houses"] as IEnumerable<SelectListItem>" class="form-control" aria-describedby="houseHelp">
+                    <option disabled selected>--Select House--</option>
+                </select>
+            </div>
+            <div id="houseHelp" class="form-text">Ev giriniz. Aradığınız ev biligisi yok ise eklemek için <a asp-controller="House" asp-action="Create">tıklayınız..</a></div>
+        </div>
+        <input type="submit" value="Create" class="btn btn-primary">
+    </form>
+
+    <!-- Person Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                </div>
+                <div class="modal-body">
+                    @{
+                        await Html.RenderPartialAsync("~/Views/Auth/Register.cshtml", model: null);
+                    }
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="mb-3">
-        <label asp-for="HouseId" class="form-label"></label>
-        <input asp-for="HouseId" class="form-control" id="houseId" aria-describedby="houseIdHelp">
-        <div id="houseIdHelp" class="form-text">Ev id giriniz.</div>
+
+
+
+    <div>
+        <a asp-action="Index">Back to List</a>
     </div>
-    <input type="submit" value="Create" class="btn btn-primary">
-</form>
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 
 </div>

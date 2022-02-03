@@ -32,6 +32,7 @@ namespace WebClient.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(CreateResidentViewModel model)

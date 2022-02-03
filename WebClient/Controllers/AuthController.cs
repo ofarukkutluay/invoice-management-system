@@ -58,16 +58,18 @@ namespace WebClient.Controllers
             if (result.Success)
             {
                 SuccessAlert(result.Message);
-                return RedirectToAction("Login");
+                return Redirect(Request.Headers["Referer"].ToString());
             }
             DangerAlert(result.Message);
-            return View();
+            return Redirect(Request.Headers["Referer"].ToString());
         }
 
         public IActionResult LogOut()
         {
             HttpContext.Session.Remove("Token");
             HttpContext.Session.Remove("UserMail");
+            InfoAlert("Çıkış Yapıldı...");
+
             return RedirectToAction("Index","Home");
         }
     }

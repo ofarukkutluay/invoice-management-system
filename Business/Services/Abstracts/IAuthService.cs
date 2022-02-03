@@ -9,5 +9,6 @@ namespace Business.Services.Abstracts
     {
         IResult RegisterPerson(RegisterPersonDto registerPerson);
         IDataResult<Token> LoginPerson(LoginPersonDto loginPerson);
+        IDataResult<PersonDto> GetPersonDtoByEmail(string email);
     }
 }
