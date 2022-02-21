@@ -3,6 +3,8 @@
     public class GetOwnersViewModel
     {
         public int PersonId { get; set; }
-        public int HouseId { get; set; }
+        public string PersonName { get; set; }
+        public string House { get; set; }
+
     }
 }

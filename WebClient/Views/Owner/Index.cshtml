@@ -27,8 +27,9 @@
         <table class="table table-bordered table-striped" style="width:100%">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">House Id</th>
+                <th scope="col">PersonId</th>
+                <th scope="col">Person Name</th>
+                <th scope="col">House</th>
                 <th></th>
             </tr>
             </thead>
@@ -37,7 +38,8 @@
             {
                 <tr>
                     <th scope="row">@item.PersonId</th>
-                    <td width="50%">@item.HouseId</td>
+                    <td width="30%">@item.PersonName</td>
+                    <td width="30%">@item.House</td>
                     <td class="text-center">
                         <a asp-controller="Owner" asp-action="Delete" asp-route-Id=@item.PersonId class="btn btn-danger">
                             Del

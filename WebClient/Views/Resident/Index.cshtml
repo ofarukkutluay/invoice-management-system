@@ -27,8 +27,9 @@
         <table class="table table-bordered table-striped" style="width:100%">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Ev Id</th>
+                <th scope="col">PersonId</th>
+                <th scope="col">Kişi Adı</th>
+                <th scope="col">Ev</th>
                 <th scope="col">Araç Palakası</th>
                 <th scope="col">Kiracı Mı?</th>
                 <th></th>
@@ -39,7 +40,8 @@
             {
                 <tr>
                     <th scope="row">@item.PersonId</th>
-                    <td >@item.HouseId</td>
+                    <td >@item.PersonName</td>
+                    <td >@item.House</td>
                     <td >@item.CarPlate</td>
                     <td >@item.IsHirer</td>
                     <td class="text-center">

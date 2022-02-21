@@ -1,6 +1,5 @@
 E:\Projects\CSharp\source\repos\invoice-management-system\Entities\bin\Debug\net5.0\Entities.deps.json
 E:\Projects\CSharp\source\repos\invoice-management-system\Entities\bin\Debug\net5.0\Entities.dll
-E:\Projects\CSharp\source\repos\invoice-management-system\Entities\bin\Debug\net5.0\ref\Entities.dll
 E:\Projects\CSharp\source\repos\invoice-management-system\Entities\bin\Debug\net5.0\Entities.pdb
 E:\Projects\CSharp\source\repos\invoice-management-system\Entities\obj\Debug\net5.0\Entities.csproj.AssemblyReference.cache
 E:\Projects\CSharp\source\repos\invoice-management-system\Entities\obj\Debug\net5.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
@@ -13,3 +12,4 @@ E:\Projects\CSharp\source\repos\invoice-management-system\Entities\obj\Debug\net
 E:\Projects\CSharp\source\repos\invoice-management-system\Entities\bin\Debug\net5.0\Core.dll
 E:\Projects\CSharp\source\repos\invoice-management-system\Entities\bin\Debug\net5.0\Core.pdb
 E:\Projects\CSharp\source\repos\invoice-management-system\Entities\obj\Debug\net5.0\Entities.csproj.CopyComplete
+E:\Projects\CSharp\source\repos\invoice-management-system\Entities\obj\Debug\net5.0\refint\Entities.dll

@@ -13,6 +13,8 @@ namespace Business.Services.Abstracts
     public interface IInvoiceService : IBaseCrudService<Invoice>
     {
         IDataResult<IEnumerable<InvoiceDto>> GetAllDetails();
+
+        IDataResult<IEnumerable<InvoiceDto>> GetAllUserInvoiceDetail(int personId);
         IDataResult<InvoiceDto> GetByIdDetail(int id);
         IResult PaySuccess(int id);
     }

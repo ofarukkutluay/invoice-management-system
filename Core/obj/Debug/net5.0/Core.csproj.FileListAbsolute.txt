@@ -1,6 +1,5 @@
 E:\Projects\CSharp\source\repos\invoice-management-system\Core\bin\Debug\net5.0\Core.deps.json
 E:\Projects\CSharp\source\repos\invoice-management-system\Core\bin\Debug\net5.0\Core.dll
-E:\Projects\CSharp\source\repos\invoice-management-system\Core\bin\Debug\net5.0\ref\Core.dll
 E:\Projects\CSharp\source\repos\invoice-management-system\Core\bin\Debug\net5.0\Core.pdb
 E:\Projects\CSharp\source\repos\invoice-management-system\Core\obj\Debug\net5.0\Core.csproj.AssemblyReference.cache
 E:\Projects\CSharp\source\repos\invoice-management-system\Core\obj\Debug\net5.0\Core.GeneratedMSBuildEditorConfig.editorconfig
@@ -10,3 +9,4 @@ E:\Projects\CSharp\source\repos\invoice-management-system\Core\obj\Debug\net5.0\
 E:\Projects\CSharp\source\repos\invoice-management-system\Core\obj\Debug\net5.0\Core.dll
 E:\Projects\CSharp\source\repos\invoice-management-system\Core\obj\Debug\net5.0\ref\Core.dll
 E:\Projects\CSharp\source\repos\invoice-management-system\Core\obj\Debug\net5.0\Core.pdb
+E:\Projects\CSharp\source\repos\invoice-management-system\Core\obj\Debug\net5.0\refint\Core.dll

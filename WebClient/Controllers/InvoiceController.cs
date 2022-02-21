@@ -12,7 +12,7 @@ using WebClient.Models.Payment;
 
 namespace WebClient.Controllers
 {
-    [Authorize(Roles = OperationClaims.Admin)]
+    
     public class InvoiceController : BaseController
     {
         private readonly IInvoiceService _invoiceService;
@@ -28,6 +28,7 @@ namespace WebClient.Controllers
             _mapper = mapper;
         }
 
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Index()
         {
             var result = _invoiceService.GetAllDetails();
@@ -39,6 +40,7 @@ namespace WebClient.Controllers
             return View();
         }
 
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Create()
         {
             SelectItemInitialize();
@@ -47,6 +49,7 @@ namespace WebClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Create(CreateInvoiceViewModel model)
         {
             var invoice = _mapper.Map<Invoice>(model);
@@ -59,6 +62,8 @@ namespace WebClient.Controllers
             DangerAlert(result.Message);
             return View();
         }
+
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Edit(int id)
         {
             var data = _invoiceService.GetById(id);
@@ -69,6 +74,7 @@ namespace WebClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Edit(int id, UpdateInvoiceViewModel model)
         {
             var invoice = _mapper.Map<Invoice>(model);
@@ -82,7 +88,7 @@ namespace WebClient.Controllers
             return View();
         }
 
-
+        [Authorize(Roles = OperationClaims.Admin)]
         public IActionResult Delete(int id)
         {
             var result = _invoiceService.Delete(id);
@@ -109,6 +115,7 @@ namespace WebClient.Controllers
             ViewData.Add("InvoiceTypes", selectInvoiceTypes);
         }
 
+        [Authorize(Roles = OperationClaims.AdminOrUser)]
         public IActionResult Pay(int id)
         {
             var invoice = _invoiceService.GetById(id).Data;

@@ -12,6 +12,7 @@ namespace DataAccess.Abstracts
     public interface IInvoiceRepository : IEntityRepository<Invoice>
     {
         IEnumerable<InvoiceDto> GetAllInvoiceDetail();
+        IEnumerable<InvoiceDto> GetAllUserInvoiceDetail(int personId);
         InvoiceDto GetInvoiceDetail(int id);
     }
 }

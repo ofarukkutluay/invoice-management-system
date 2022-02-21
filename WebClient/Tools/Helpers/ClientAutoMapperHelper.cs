@@ -13,6 +13,7 @@ using WebClient.Models.Owner;
 using WebClient.Models.Payment;
 using WebClient.Models.Person;
 using WebClient.Models.Resident;
+using WebClient.Models.UserPanel;
 
 namespace WebClient.Helpers.Mapper
 {
@@ -41,12 +42,12 @@ namespace WebClient.Helpers.Mapper
             CreateMap<CreateInvoiceTypeViewModel, InvoiceType>();
             CreateMap<UpdateInvoiceTypeViewModel, InvoiceType>();
 
-            CreateMap<Owner, GetOwnersViewModel>();
+            CreateMap<OwnerDto, GetOwnersViewModel>();
             CreateMap<Owner, UpdateOwnerViewModel>();
             CreateMap<CreateOwnerViewModel, Owner>();
             CreateMap<UpdateOwnerViewModel, Owner>();
 
-            CreateMap<Resident, GetResidentsViewModel>();
+            CreateMap<ResidentDto, GetResidentsViewModel>();
             CreateMap<Resident, UpdateResidentViewModel>();
             CreateMap<CreateResidentViewModel, Resident>();
             CreateMap<UpdateResidentViewModel, Resident>();
@@ -65,6 +66,8 @@ namespace WebClient.Helpers.Mapper
             CreateMap<PersonDto, GetPersonViewModel>();
             CreateMap<PersonDto, UpdatePersonViewModel>();
             CreateMap<UpdatePersonViewModel, Person>();
+
+            CreateMap<InvoiceDto, GetUserInvoicesViewModel>();
         }
     }
 }

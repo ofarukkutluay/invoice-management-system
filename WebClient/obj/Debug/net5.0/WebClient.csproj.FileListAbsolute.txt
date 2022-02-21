@@ -5,7 +5,6 @@ E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\bin\Debug\ne
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\bin\Debug\net5.0\WebClient.runtimeconfig.json
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\bin\Debug\net5.0\WebClient.runtimeconfig.dev.json
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\bin\Debug\net5.0\WebClient.dll
-E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\bin\Debug\net5.0\ref\WebClient.dll
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\bin\Debug\net5.0\WebClient.pdb
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\bin\Debug\net5.0\WebClient.Views.dll
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\bin\Debug\net5.0\WebClient.Views.pdb
@@ -186,3 +185,6 @@ E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\ne
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\Person\Index.cshtml.g.cs
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\Person\Edit.cshtml.g.cs
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\Shared\_MenuBar.cshtml.g.cs
+E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\refint\WebClient.dll
+E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\UserPanel\Index.cshtml.g.cs
+E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\UserPanel\Invoices.cshtml.g.cs

@@ -30,7 +30,7 @@ namespace WebClient.Controllers
 
         public IActionResult Index()
         {
-            var result = _ownerService.GetAll();
+            var result = _ownerService.GetAllDetails();
             var returnObj = _mapper.Map<IEnumerable<GetOwnersViewModel>>(result.Data);
             return View(returnObj);
         }
@@ -60,6 +60,7 @@ namespace WebClient.Controllers
 
         public IActionResult Edit(int id)
         {
+            SelectItemInitialize();
             var result = _ownerService.GetById(id);
             if (result.Success)
             {

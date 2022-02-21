@@ -8,6 +8,7 @@ using Business.Services.Abstracts;
 using Core.Utilities.Results;
 using DataAccess.Abstracts;
 using Entities.Concretes;
+using Entities.Dtos;
 
 namespace Business.Services.Concretes
 {
@@ -77,6 +78,12 @@ namespace Business.Services.Concretes
         {
             var owners = _ownerRepository.GetList();
             return new DataResult<IEnumerable<Owner>>(owners, true);
+        }
+
+        public IDataResult<IEnumerable<OwnerDto>> GetAllDetails()
+        {
+            var owners = _ownerRepository.GetAllDetails();
+            return new DataResult<IEnumerable<OwnerDto>>(owners, true);
         }
     }
 }

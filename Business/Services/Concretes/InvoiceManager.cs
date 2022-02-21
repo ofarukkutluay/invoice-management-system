@@ -82,6 +82,12 @@ namespace Business.Services.Concretes
             return new DataResult<IEnumerable<InvoiceDto>>(invoices, true);
         }
 
+        public IDataResult<IEnumerable<InvoiceDto>> GetAllUserInvoiceDetail(int personId)
+        {
+            var invoices = _invoiceRepository.GetAllUserInvoiceDetail(personId);
+            return new DataResult<IEnumerable<InvoiceDto>>(invoices, true);
+        }
+
         public IDataResult<InvoiceDto> GetByIdDetail(int id)
         {
             var invoice = _invoiceRepository.GetInvoiceDetail(id);

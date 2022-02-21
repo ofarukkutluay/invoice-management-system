@@ -11,13 +11,21 @@
 <form method="post" asp-action="Create">
     <div class="mb-3">
         <label asp-for="PersonId" class="form-label"></label>
-        <input asp-for="PersonId" class="form-control" id="personId" aria-describedby="personIdHelp">
-        <div id="personIdHelp" class="form-text">Kullanıcı id giriniz.</div>
+        <div class="input-group mb-3">
+            <select asp-for="PersonId" asp-items="@ViewData["Persons"] as IEnumerable<SelectListItem>" class="form-control" aria-describedby="personHelp">
+                <option disabled selected>--Select Person--</option>
+            </select>
+            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">+</a>
+        </div>
     </div>
     <div class="mb-3">
         <label asp-for="HouseId" class="form-label"></label>
-        <input asp-for="HouseId"  class="form-control" id="houseId" aria-describedby="houseIdHelp">
-        <div id="houseIdHelp" class="form-text">Ev id giriniz.</div>
+        <div class="input-group mb-3">
+            <select asp-for="HouseId" asp-items="@ViewData["Houses"] as IEnumerable<SelectListItem>" class="form-control" aria-describedby="houseHelp">
+                <option disabled selected>--Select House--</option>
+            </select>
+        </div>
+        <div id="houseHelp" class="form-text">Ev giriniz. Aradığınız ev biligisi yok ise eklemek için <a asp-controller="House" asp-action="Create">tıklayınız..</a></div>
     </div>
     <div class="mb-3">
         <label asp-for="CarPlate" class="form-label"></label>
