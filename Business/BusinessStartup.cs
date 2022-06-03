@@ -27,7 +27,7 @@ namespace Business
 
         public virtual void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<InvoiceManagementDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("localServer")));
+            services.AddDbContext<InvoiceManagementDbContext>(options => options.UseInMemoryDatabase(databaseName:"InvoiceManagementDb")); // local için // options.UseSqlServer(Configuration.GetConnectionString("localServer"))
             services.AddDependencyResolvers(new ICoreModule[]
             {
                 new BusinessModule(),

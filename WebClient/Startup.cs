@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using Core.Middlewares.ConsoleLog;
 using Core.Middlewares.ExceptionHandler;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpOverrides;
 using WebClient.Helpers.Mapper;
 
 namespace WebClient
@@ -33,12 +34,19 @@ namespace WebClient
             services.AddAutoMapper(typeof(ClientAutoMapperHelper), typeof(BusinessAutoMapperHelper));
             services.AddDistributedMemoryCache();
             services.AddSession();
+            services.AddCors();
             base.ConfigureServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials
+
             app.UseConsoleLogMiddleware();
             if (env.IsDevelopment())
             {
@@ -78,6 +86,11 @@ namespace WebClient
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
 
             app.UseAuthentication();
             app.UseAuthorization();

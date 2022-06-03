@@ -188,3 +188,4 @@ E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\ne
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\refint\WebClient.dll
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\UserPanel\Index.cshtml.g.cs
 E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\obj\Debug\net5.0\Razor\Views\UserPanel\Invoices.cshtml.g.cs
+E:\Projects\CSharp\source\repos\invoice-management-system\WebClient\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll

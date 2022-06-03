@@ -27,6 +27,10 @@ namespace Business.Services.Concretes
 
         public IResult Create(Person person)
         {
+            if (_personRepository.GetCount()==0)
+            {
+                person.OperationClaim = OperationClaims.Admin;
+            }
             _personRepository.Add(person);
             int result = _personRepository.SaveChanges();
             if (result == 0)
